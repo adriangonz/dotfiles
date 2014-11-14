@@ -1,0 +1,10 @@
+name: ah
+root: ~/Reincubate/sdk/ActionHelper
+windows:
+    - shell:
+    - main:
+        layout: even-horizontal
+        panes:
+            - .
+            - cd TestMac/bin/Debug/
+    
