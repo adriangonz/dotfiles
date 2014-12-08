@@ -18,6 +18,8 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set laststatus=2
 set t_Co=256
 
+set clipboard=unnamed
+
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
