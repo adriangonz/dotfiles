@@ -1,0 +1,10 @@
+name: ri 
+root: ~/Reincubate/
+windows:
+    - shell:
+    - main:
+        layout: even-horizontal
+        panes:
+            - cd sdk
+            - cd ipbe-app
+    
