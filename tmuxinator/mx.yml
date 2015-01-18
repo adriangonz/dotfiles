@@ -1,0 +1,10 @@
+name: ri 
+root: ~/
+windows:
+    - shell:
+    - main:
+        layout: even-horizontal
+        panes:
+            - cd Development
+            - cd ~
+    
