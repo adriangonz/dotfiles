@@ -1,4 +1,4 @@
-# My dotfiles
+# My dev environment
 
 ## Setting up
 
@@ -47,4 +47,37 @@
   ```console
   $ cd ~/dotfiles/powerline-shell
   $ ./install.py
+  ```
+
+## Sublime config
+
+1. Link `subl`
+
+  ```console
+  $  ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+  ``` 
+
+2. Install [Package Control](https://packagecontrol.io/installation#st3)
+3. Install `Material Theme` and `Anaconda`
+
+> TODO: Configure `Anaconda` properly
+
+4. Add these settings
+
+  ```json
+  {
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true,
+    "file_exclude_patterns":
+    [
+        ".DS_Store",
+        "*.pid",
+        "*.pyc"
+    ],
+    "folder_exclude_patterns":
+    [
+        ".git",
+        "__pycache__",
+    ]
+  }
   ```
