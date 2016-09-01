@@ -1,6 +1,6 @@
 # My dev environment
 
-## Setting up
+## Setting up dotfiles
 
 1. Clone the repo (with `--recursive` to get the submodules)
 
@@ -80,4 +80,13 @@
         "__pycache__",
     ]
   }
+  ```
+
+## Extra stuff
+
+1, Install `bash-completion`
+
+  ```console
+  $ brew install bash-completion
+  $ brew tap homebrew/completions
   ```

@@ -1,9 +1,0 @@
-name: ri 
-root: ~/Development/Watch/
-windows:
-    - main:
-        layout: even-horizontal
-        panes:
-            - cd .
-            - cd .
-    
