@@ -25,4 +25,5 @@ alias mdtool="/Applications/Xamarin\ Studio.app/Contents/MacOS/mdtool"
 alias ls="ls -G"
 
 # tmux autocompletion
-source ~/dotfiles/tmuxinator.bash 
+source ~/dotfiles/tmuxinator.bash
+
