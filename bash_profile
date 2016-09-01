@@ -6,7 +6,7 @@ export PATH="~/.gem/ruby/2.0.0/bin:$PATH"
 export PATH="~/.vim/bundle/powerline/scripts:$PATH"
 
 _update_ps1() {
-    export PS1="$(~/Stuff/powerline-shell/powerline-shell.py $? 2> /dev/null)"
+    export PS1="$(~/.powerline-shell/powerline-shell.py $? 2> /dev/null)"
 }
            
 export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
