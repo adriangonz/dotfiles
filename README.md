@@ -84,7 +84,8 @@
     [
         ".git",
         "__pycache__",
-    ]
+    ],
+    “scroll_past_end”: true
   }
   ```
 
@@ -95,4 +96,9 @@
   ```console
   $ brew install bash-completion
   $ brew tap homebrew/completions
+  ```
+* Set up proper `git lg`
+
+  ```console
+  $ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
   ```
