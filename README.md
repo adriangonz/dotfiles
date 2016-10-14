@@ -55,6 +55,12 @@
   $ ./install.py
   ```
 
+* Link `.editorconfig`
+
+  ```console
+  $ ln -s ~/dotfiles/editorconfig ~/.editorconfig
+  ```
+
 ## Sublime config
 
 * Link `subl`
@@ -64,11 +70,11 @@
   ``` 
 
 * Install [Package Control](https://packagecontrol.io/installation#st3)
-* Install `Material Theme` and `Anaconda`
+* Install `Material Theme`, `Anaconda` and `EditorConfig`
 
 > TODO: Configure `Anaconda` properly
 
-* Add these settings
+* Add these settings as default
 
   ```json
   {

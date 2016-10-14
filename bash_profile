@@ -27,3 +27,7 @@ alias ls="ls -G"
 # tmux autocompletion
 source ~/dotfiles/tmuxinator.bash
 
+# virtualenvwrapper config
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Projects
+source /usr/local/bin/virtualenvwrapper.sh
