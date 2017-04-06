@@ -34,4 +34,12 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 export GOPATH=~/.golang
 export PATH=$PATH:$GOPATH/bin
+export PATH="$HOME/.fastlane/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
+# NVM config
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+# Import handy functions
+. ~/dotfiles/functions/*
