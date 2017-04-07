@@ -1,31 +1,45 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'powerline/powerline'
 Plug 'altercation/vim-colors-solarized'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'editorconfig/editorconfig-vim'
 
 " Initialize plugin system
 call plug#end()
 
-set backspace=2 
-syntax on
-filetype indent on
-set autoindent
-set number
-set background=dark
+" Keymaps
 
-colorscheme solarized
+"" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
-set nobackup
+"" Pane navigation
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-
+"" Disable arrows to be cool
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+" Syntax defaults
+
+"" Enable color
+syntax on
+set background=dark
+colorscheme solarized
+
+"" Enable indentation
+filetype indent on
+set autoindent
+
+set number
+set nobackup
 
 set rtp+=~/.vim/plugged/powerline/powerline/bindings/vim
 set laststatus=2
@@ -33,6 +47,3 @@ set t_Co=256
 
 set clipboard=unnamed
 
-" NERDTree Config
-
-let NERDTreeIgnore = ['\.pyc$']
