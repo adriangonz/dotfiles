@@ -1,5 +1,7 @@
 *.swp
 .netrwhist
 
-# vim plugins
+# vim 
 vim/plugged
+vim/sessions
+

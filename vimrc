@@ -1,10 +1,24 @@
+"" Plugins
 call plug#begin('~/.vim/plugged')
 
+" Quick switch between files (like cmd+P on Sublime)
 Plug 'ctrlpvim/ctrlp.vim'
+
+" Powerline footer (tmux also depends on this)
 Plug 'powerline/powerline'
+
+" Solarized schema
 Plug 'altercation/vim-colors-solarized'
+
+" Tmux/Vim integration (seamless navigation between panes)
 Plug 'christoomey/vim-tmux-navigator'
+
+" Respect editorconfig's files
 Plug 'editorconfig/editorconfig-vim'
+
+" Easier handling of sessions (projects on Sublime)
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
 
 " Initialize plugin system
 call plug#end()
