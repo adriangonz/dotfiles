@@ -1,4 +1,4 @@
-execute pathogen#infect()
+call plug#begin('~/.vim/bundle')
 
 set backspace=2 
 syntax on
