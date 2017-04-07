@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'powerline/powerline'
+Plug 'altercation/vim-colors-solarized'
 
 " Initialize plugin system
 call plug#end()
