@@ -1,4 +1,9 @@
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.vim/plugged')
+
+Plug 'powerline/powerline'
+
+" Initialize plugin system
+call plug#end()
 
 set backspace=2 
 syntax on
@@ -21,7 +26,7 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+set rtp+=~/.vim/plugged/powerline/powerline/bindings/vim
 set laststatus=2
 set t_Co=256
 
