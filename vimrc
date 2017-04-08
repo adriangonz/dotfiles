@@ -5,7 +5,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Powerline footer (tmux also depends on this)
-Plug 'powerline/powerline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/promptline.vim'
+Plug 'edkolev/tmuxline.vim'
 
 " Solarized schema
 Plug 'altercation/vim-colors-solarized'
@@ -25,6 +28,9 @@ call plug#end()
 
 " Keymaps
 
+"" Re-map leader
+let mapleader = "\<Space>"
+
 "" CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -41,7 +47,26 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" Syntax defaults
+"" Vim sessions
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_autosave_periodic = 5
+nnoremap <leader>so :OpenSession 
+
+" Misc
+
+"" Airline settings
+let g:airline_theme = 'solarized'
+let g:airline_powerline_fonts = 1
+
+""" We generate tmux status bar and our prompt from vim
+""" (that way we are consistent in terms of themes/etc)
+""" This sets the config for each one
+let g:promptline_preset = {
+        \'b' : [ promptline#slices#user() ],
+        \'c' : [ promptline#slices#cwd() ],
+        \'y' : [ promptline#slices#vcs_branch() ],
+        \'warn' : [ promptline#slices#last_exit_code() ]}
 
 "" Enable color
 syntax on
@@ -60,4 +85,5 @@ set laststatus=2
 set t_Co=256
 
 set clipboard=unnamed
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules
 
