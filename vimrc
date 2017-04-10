@@ -23,6 +23,17 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 
+" Git
+Plug 'tpope/vim-fugitive'
+
+" Linters/etc
+Plug 'scrooloose/syntastic'
+Plug 'Yggdroot/indentLine'
+
+" Languages
+Plug 'kchmck/vim-coffee-script'
+Plug 'pangloss/vim-javascript'
+
 " Initialize plugin system
 call plug#end()
 
@@ -49,14 +60,19 @@ noremap <Right> <NOP>
 
 "" Vim sessions
 let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_autosave_periodic = 5
+let g:session_autosave = "yes"
+let g:session_autosave_periodic = 1
+let g:session_autosave_silent = 1
 nnoremap <leader>so :OpenSession 
 
 " Misc
 
+"" Prettier support
+autocmd FileType javascript set formatprg=prettier\ --stdin
+autocmd BufWritePre *.js :normal gggqG
+
 "" Airline settings
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'powerlineish'
 let g:airline_powerline_fonts = 1
 
 """ We generate tmux status bar and our prompt from vim
@@ -67,6 +83,23 @@ let g:promptline_preset = {
         \'c' : [ promptline#slices#cwd() ],
         \'y' : [ promptline#slices#vcs_branch() ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
+
+"" Syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+
+"" CtrlP Config
+let g:ctrlp_dotfiles = 1
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\.coffee'
 
 "" Enable color
 syntax on
@@ -85,5 +118,4 @@ set laststatus=2
 set t_Co=256
 
 set clipboard=unnamed
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules
 
