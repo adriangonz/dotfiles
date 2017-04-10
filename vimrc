@@ -30,6 +30,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 
+" Handy tools for editing files
+Plug 'andrewradev/sideways.vim'
+Plug 'dyng/ctrlsf.vim'
+Plug 'terryma/vim-multiple-cursors'
+
 " Languages
 Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
@@ -63,9 +68,12 @@ let g:session_autoload = "no"
 let g:session_autosave = "yes"
 let g:session_autosave_periodic = 1
 let g:session_autosave_silent = 1
-nnoremap <leader>so :OpenSession 
+nnoremap <leader>so :OpenSession<Space>
 
 " Misc
+
+"" CtrlSF
+let g:ctrlsf_ackprog = 'ack'
 
 "" Prettier support
 autocmd FileType javascript set formatprg=prettier\ --stdin
@@ -99,7 +107,8 @@ let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 
 "" CtrlP Config
 let g:ctrlp_dotfiles = 1
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\.coffee'
+let g:ctrlp_custom_ignore = {
+        \ 'dir': 'node_modules\|DS_Store\|git\|\.coffee'}
 
 "" Enable color
 syntax on
