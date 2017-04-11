@@ -98,9 +98,11 @@ let g:airline_powerline_fonts = 1
 """ (that way we are consistent in terms of themes/etc)
 """ This sets the config for each one
 let g:promptline_preset = {
+        \'a' : [ promptline#slices#python_virtualenv() ],
         \'b' : [ promptline#slices#user() ],
         \'c' : [ promptline#slices#cwd() ],
-        \'y' : [ promptline#slices#vcs_branch() ],
+        \'x' : [ promptline#slices#vcs_branch() ],
+        \'y' : [ promptline#slices#git_status() ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
 
 "" Syntastic config
