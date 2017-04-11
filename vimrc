@@ -34,10 +34,12 @@ Plug 'Yggdroot/indentLine'
 Plug 'andrewradev/sideways.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'scrooloose/nerdcommenter'
 
 " Languages
 Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " Initialize plugin system
 call plug#end()
@@ -50,6 +52,9 @@ let mapleader = "\<Space>"
 "" CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+"" CtrlSF
+nnoremap <leader>sf :CtrlSF<Space>
 
 "" Pane navigation
 nnoremap <c-j> <c-w>j
@@ -64,13 +69,19 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 "" Vim sessions
+nnoremap <leader>so :OpenSession<Space>
+
+" Misc
+
+"" Vim sessions
 let g:session_autoload = "no"
 let g:session_autosave = "yes"
 let g:session_autosave_periodic = 1
 let g:session_autosave_silent = 1
-nnoremap <leader>so :OpenSession<Space>
+set exrc
 
-" Misc
+"" JSX
+let g:jsx_ext_required = 0
 
 "" CtrlSF
 let g:ctrlsf_ackprog = 'ack'
@@ -117,10 +128,12 @@ colorscheme solarized
 
 "" Enable indentation
 filetype indent on
+filetype plugin on
 set autoindent
 
 set number
 set nobackup
+set noswapfile
 
 set rtp+=~/.vim/plugged/powerline/powerline/bindings/vim
 set laststatus=2
@@ -128,3 +141,4 @@ set t_Co=256
 
 set clipboard=unnamed
 
+set secure
