@@ -40,6 +40,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'hail2u/vim-css3-syntax'
 
 " Initialize plugin system
 call plug#end()
@@ -129,16 +130,11 @@ colorscheme solarized
 "" Enable indentation
 filetype indent on
 filetype plugin on
-set autoindent
-
 set number
 set nobackup
 set noswapfile
-
-set rtp+=~/.vim/plugged/powerline/powerline/bindings/vim
 set laststatus=2
 set t_Co=256
-
 set clipboard=unnamed
 
 set secure
