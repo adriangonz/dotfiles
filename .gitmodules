@@ -14,6 +14,3 @@
 	path = vim/bundle/powerline
 	url = https://github.com/powerline/powerline.git
     ignore = dirty
-[submodule "powerline-shell"]
-	path = powerline-shell
-	url = https://github.com/banga/powerline-shell.git
