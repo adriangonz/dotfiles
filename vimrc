@@ -1,6 +1,9 @@
 "" Plugins
 call plug#begin('~/.vim/plugged')
 
+" Some base settings
+Plug 'tpope/vim-sensible'
+
 " Quick switch between files (like cmd+P on Sublime)
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -26,7 +29,11 @@ Plug 'xolox/vim-misc'
 " Git
 Plug 'tpope/vim-fugitive'
 
+" Local vimrc
+Plug 'embear/vim-localvimrc'
+
 " Linters/etc
+Plug 'sbdchd/neoformat'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 
@@ -72,6 +79,10 @@ noremap <Right> <NOP>
 "" Vim sessions
 nnoremap <leader>so :OpenSession<Space>
 
+"" Sideways
+nnoremap <leader>sl :SidewaysLeft<CR>
+nnoremap <leader>sr :SidewaysRight<CR>
+
 " Misc
 
 "" Vim sessions
@@ -88,8 +99,7 @@ let g:jsx_ext_required = 0
 let g:ctrlsf_ackprog = 'ack'
 
 "" Prettier support
-autocmd FileType javascript set formatprg=prettier\ --stdin
-autocmd BufWritePre *.js :normal gggqG
+autocmd BufWritePre *.js Neoformat
 
 "" Airline settings
 let g:airline_theme = 'powerlineish'
@@ -122,21 +132,9 @@ let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 "" CtrlP Config
 let g:ctrlp_dotfiles = 1
 let g:ctrlp_custom_ignore = {
-        \ 'dir': 'node_modules\|DS_Store\|git\|\.coffee'}
+        \ 'dir': 'vendor\|node_modules\|DS_Store\|git\|\.coffee'}
 
 "" Enable color
-syntax on
 set background=dark
 colorscheme solarized
 
-"" Enable indentation
-filetype indent on
-filetype plugin on
-set number
-set nobackup
-set noswapfile
-set laststatus=2
-set t_Co=256
-set clipboard=unnamed
-
-set secure
