@@ -42,24 +42,22 @@
   ```
 
 * Get `Monaco for Powerline` from [here](https://gist.github.com/baopham/1838072/raw/616d338cea8b9dcc3a5b17c12fe3070df1b738c0/Monaco%2520for%2520Powerline.otf) and set it up on `iTerm`
-* Link `.powerline-shell` and the `config.py` file
-
-  ```console
-  $ ln -s ~/dotfiles/powerline-shell.config.py ~/dotfiles/powerline-shell/config.py
-  $ ln -s ~/dotfiles/powerline-shell ~/.powerline-shell
-  ```
-* Generate `powerline-shell` py script:
-
-  ```console
-  $ cd ~/dotfiles/powerline-shell
-  $ ./install.py
-  ```
 
 * Link `.editorconfig`
 
   ```console
   $ ln -s ~/dotfiles/editorconfig ~/.editorconfig
   ```
+
+## Prompt
+
+We generate our prompt from `vim` (thanks to [`edkolev/promptline.vim`](https://github.com/edkolev/promptline.vim)). That way we ensure the style is consistent accross `vim`/`tmux`/`bash`.
+
+To edit it, checkout the `promptline_preset` variable on `vimrc` and re-generate it as:
+
+```console
+$ vim +PromptlineSnapshot functions/prompt.sh
+```
 
 ## Sublime config
 
