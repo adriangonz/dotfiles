@@ -43,6 +43,7 @@ Plug 'andrewradev/sideways.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
 
 " Languages
 Plug 'kchmck/vim-coffee-script'
@@ -144,6 +145,7 @@ let g:ctrlp_custom_ignore = {
         \ 'dir': 'vendor\|node_modules\|DS_Store\|git\|\.coffee'}
 
 "" Enable color
+set t_Co=256
 set background=dark
 colorscheme solarized
 
