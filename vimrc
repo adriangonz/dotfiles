@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 
 " Some base settings
 Plug 'tpope/vim-sensible'
+Plug 'myusuf3/numbers.vim'
 
 " Quick switch between files (like cmd+P on Sublime)
 Plug 'ctrlpvim/ctrlp.vim'
@@ -84,6 +85,14 @@ nnoremap <leader>sl :SidewaysLeft<CR>
 nnoremap <leader>sr :SidewaysRight<CR>
 
 " Misc
+
+"" numbers.vim
+set number
+
+"" sw* files
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
 "" Vim sessions
 let g:session_autoload = "no"
