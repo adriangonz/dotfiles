@@ -142,7 +142,8 @@ let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 "" CtrlP Config
 let g:ctrlp_dotfiles = 1
 let g:ctrlp_custom_ignore = {
-        \ 'dir': 'vendor\|node_modules\|DS_Store\|git\|\.coffee'}
+        \ 'dir': 'vendor\|node_modules\|DS_Store\|\.git\|\.coffee'}
+let g:ctrlp_follow_symlinks = 1
 
 "" Enable color
 set t_Co=256
