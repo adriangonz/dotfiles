@@ -44,12 +44,15 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
+Plug 'ryanoasis/vim-devicons'
 
 " Languages
 Plug 'kchmck/vim-coffee-script'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'fatih/vim-go'
+Plug 'vim-scripts/nginx.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -108,8 +111,14 @@ let g:jsx_ext_required = 0
 "" CtrlSF
 let g:ctrlsf_ackprog = 'ack'
 
-"" Prettier support
-autocmd BufWritePre *.js Neoformat
+"" Neoformat
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * Neoformat
+augroup END
+
+"" vim-go
+let g:go_metalinter_autosave = 1
 
 "" Airline settings
 let g:airline_theme = 'powerlineish'

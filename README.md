@@ -2,11 +2,29 @@
 
 ## Setting up dotfiles
 
-* Clone the repo (with `--recursive` to get the submodules)
+* Clone the repo 
 
   ```console
   $ git --recursive git@github.com:adriangonz/dotfiles.git
   ```
+
+* Get `brew` (just follow [instructions](https://brew.sh))
+
+* Get `Monaco for Powerline` from [here](https://gist.github.com/baopham/1838072/raw/616d338cea8b9dcc3a5b17c12fe3070df1b738c0/Monaco%2520for%2520Powerline.otf) and set it up on `iTerm` and patch it to add [devicons](https://github.com/ryanoasis/nerd-fonts#font-patcher)
+
+  ```console
+    brew install fontforge
+    git clone ryanoasis/nerd-fonts
+    fontforge -script font-patcher ~/Library/Fonts/Monaco%20for%20Powerline.otf
+  ```
+
+* Link `.editorconfig`
+
+  ```console
+  $ ln -s ~/dotfiles/editorconfig ~/.editorconfig
+  ```
+
+## Vim
 
 * Link `.vimrc` and `.vim`
   
@@ -15,7 +33,16 @@
   $ ln -s ~/dotfiles/vim ~/.vim
   ```
 
-* Get `brew`
+* Get latest vim
+  
+  ```console
+  $ brew install vim
+  ```
+
+* Install all plugins with `:PlugInstall`
+
+## Tmux
+
 * Install `tmux`
 
   ```console
@@ -41,14 +68,6 @@
   $ curl -fsSL https://gist.github.com/mislav/5189704/raw/install.sh | bash -e
   ```
 
-* Get `Monaco for Powerline` from [here](https://gist.github.com/baopham/1838072/raw/616d338cea8b9dcc3a5b17c12fe3070df1b738c0/Monaco%2520for%2520Powerline.otf) and set it up on `iTerm`
-
-* Link `.editorconfig`
-
-  ```console
-  $ ln -s ~/dotfiles/editorconfig ~/.editorconfig
-  ```
-
 ## Prompt
 
 We generate our prompt from `vim` (thanks to [`edkolev/promptline.vim`](https://github.com/edkolev/promptline.vim)). That way we ensure the style is consistent accross `vim`/`tmux`/`bash`.
@@ -58,40 +77,6 @@ To edit it, checkout the `promptline_preset` variable on `vimrc` and re-generate
 ```console
 $ vim +PromptlineSnapshot functions/prompt.sh
 ```
-
-## Sublime config
-
-* Link `subl`
-
-  ```console
-  $  ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
-  ``` 
-
-* Install [Package Control](https://packagecontrol.io/installation#st3)
-* Install `Material Theme`, `Anaconda` and `EditorConfig`
-
-> TODO: Configure `Anaconda` properly
-
-* Add these settings as default
-
-  ```json
-  {
-    "tab_size": 4,
-    "translate_tabs_to_spaces": true,
-    "file_exclude_patterns":
-    [
-        ".DS_Store",
-        "*.pid",
-        "*.pyc"
-    ],
-    "folder_exclude_patterns":
-    [
-        ".git",
-        "__pycache__",
-    ],
-    “scroll_past_end”: true
-  }
-  ```
 
 ## Extra stuff
 
