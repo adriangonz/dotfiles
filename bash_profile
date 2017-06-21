@@ -13,9 +13,6 @@ fi
 alias mdtool="/Applications/Xamarin\ Studio.app/Contents/MacOS/mdtool"
 alias ls="ls -G"
 
-# tmux autocompletion
-source ~/dotfiles/tmuxinator.bash
-
 # virtualenvwrapper config
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects

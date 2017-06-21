@@ -49,17 +49,10 @@
   $ brew install tmux
   ```
 
-* Install `tmuxinator` (you may need *sudo* if `gem` is installed system-wide)
-
-  ```console
-  $ gem install tmuxinator
-  ```
-
 * Link `.tmux.conf` and `tmuxinator`
 
   ```console
   $ ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
-  $ ln -s ~/dotfiles/tmuxinator ~/.tmuxinator
   ```
 
 * Enable pane navigation on tmux as on vim (Based on [https://gist.github.com/mislav/5189704](https://gist.github.com/mislav/5189704))
