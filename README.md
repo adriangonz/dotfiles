@@ -13,9 +13,9 @@
 * Get `Monaco for Powerline` from [here](https://gist.github.com/baopham/1838072/raw/616d338cea8b9dcc3a5b17c12fe3070df1b738c0/Monaco%2520for%2520Powerline.otf) and set it up on `iTerm` and patch it to add [devicons](https://github.com/ryanoasis/nerd-fonts#font-patcher)
 
   ```console
-    brew install fontforge
-    git clone ryanoasis/nerd-fonts
-    fontforge -script font-patcher ~/Library/Fonts/Monaco%20for%20Powerline.otf
+    $ brew install fontforge
+    $ git clone ryanoasis/nerd-fonts
+    $ fontforge -script font-patcher ~/Library/Fonts/Monaco%20for%20Powerline.otf
   ```
 
 * Link `.editorconfig`
