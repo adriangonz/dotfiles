@@ -53,6 +53,7 @@ Plug 'mxw/vim-jsx'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'fatih/vim-go'
 Plug 'vim-scripts/nginx.vim'
+Plug 'wavded/vim-stylus'
 
 " Initialize plugin system
 call plug#end()
