@@ -40,10 +40,10 @@
   $ brew install vim
   ```
 
-* Install [ripgrep](https://github.com/BurntSushi/ripgrep)
+* Install [ripgrep](https://github.com/BurntSushi/ripgrep) and [fzf](https://github.com/junegunn/fzf)
 
   ```console
-  $ brew install ripgrep
+  $ brew install ripgrep fzf
   ```
 
 * Install all plugins with `:PlugInstall`
