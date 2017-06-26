@@ -24,6 +24,7 @@
   $ ln -s ~/dotfiles/editorconfig ~/.editorconfig
   ```
 
+
 ## Vim
 
 * Link `.vimrc` and `.vim`
@@ -37,6 +38,12 @@
   
   ```console
   $ brew install vim
+  ```
+
+* Install [ripgrep](https://github.com/BurntSushi/ripgrep)
+
+  ```console
+  $ brew install ripgrep
   ```
 
 * Install all plugins with `:PlugInstall`

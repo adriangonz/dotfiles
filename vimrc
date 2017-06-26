@@ -6,7 +6,7 @@ Plug 'tpope/vim-sensible'
 Plug 'myusuf3/numbers.vim'
 
 " Quick switch between files (like cmd+P on Sublime)
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf'
 
 " Powerline footer (tmux also depends on this)
 Plug 'vim-airline/vim-airline'
@@ -150,11 +150,22 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 
-"" CtrlP Config
-let g:ctrlp_dotfiles = 1
-let g:ctrlp_custom_ignore = {
-        \ 'dir': 'vendor$\|node_modules$\|DS_Store$\|\.git$\|\.coffee$\|\.tmp$\|bower_components$'}
-let g:ctrlp_follow_symlinks = 1
+"" fzf config
+nmap <C-p> :FZF<cr>
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-i': 'split',
+  \ 'ctrl-s': 'vsplit' }
+let g:fzf_layout = { 'down': '~20%' }
+
+let g:rg_command = '
+  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+  \ -g "*.{js,json,php,md,styl,pug,jade,html,config,py,cpp,c,go,hs,rb,conf,fa,lst}"
+  \ -g "!{.config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist}/*" '
+
+command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
 "" Enable color
 set t_Co=256
