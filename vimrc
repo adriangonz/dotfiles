@@ -55,6 +55,7 @@ Plug 'fatih/vim-go'
 Plug 'vim-scripts/nginx.vim'
 Plug 'wavded/vim-stylus'
 Plug 'jmcantrell/vim-virtualenv'
+Plug 'digitaltoad/vim-pug'
 
 " Initialize plugin system
 call plug#end()
