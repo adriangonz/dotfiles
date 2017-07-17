@@ -47,15 +47,7 @@ Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 
 " Languages
-Plug 'kchmck/vim-coffee-script'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'fatih/vim-go'
-Plug 'vim-scripts/nginx.vim'
-Plug 'wavded/vim-stylus'
-Plug 'jmcantrell/vim-virtualenv'
-Plug 'digitaltoad/vim-pug'
+Plug 'sheerun/vim-polyglot'
 
 " Initialize plugin system
 call plug#end()
