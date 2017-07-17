@@ -45,6 +45,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
+Plug 'ap/vim-css-color'
 
 " Languages
 Plug 'sheerun/vim-polyglot'
