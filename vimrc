@@ -35,7 +35,7 @@ Plug 'embear/vim-localvimrc'
 
 " Linters/etc
 Plug 'sbdchd/neoformat'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'Yggdroot/indentLine'
 
 " Handy tools for editing files
@@ -131,18 +131,9 @@ let g:promptline_preset = {
         \'y' : [ promptline#slices#git_status() ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
 
-"" Syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+"" ALE config
+let g:airline#extensions#ale#enabled = 1
+let g:ale_open_list = 1
 
 "" fzf config
 nmap <C-p> :FZF<cr>
