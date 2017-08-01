@@ -134,6 +134,13 @@ let g:promptline_preset = {
 "" ALE config
 let g:airline#extensions#ale#enabled = 1
 let g:ale_open_list = 1
+let g:ale_lint_on_text_changed = 'never'
+
+""" Some settings
+let g:ale_linters = {
+\   'html': [],
+\   'javascript': ['eslint'],
+\}
 
 "" fzf config
 nmap <C-p> :FZF<cr>
