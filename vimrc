@@ -135,12 +135,19 @@ let g:promptline_preset = {
 let g:airline#extensions#ale#enabled = 1
 let g:ale_open_list = 1
 let g:ale_lint_on_text_changed = 'never'
-
-""" Some settings
 let g:ale_linters = {
 \   'html': [],
 \   'javascript': ['eslint'],
+\   'go': ['gofmt', 'gometalinter'],
 \}
+let g:ale_go_gometalinter_options = '--fast'
+
+"" Neoformat config
+let g:neoformat_javascript_prettier = {
+    \ 'exe': 'prettier',
+    \ 'args': ['--stdin'],
+    \ 'stdin': 1
+    \ }
 
 "" fzf config
 nmap <C-p> :FZF<cr>
