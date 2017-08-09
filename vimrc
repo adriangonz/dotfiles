@@ -14,8 +14,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/promptline.vim'
 Plug 'edkolev/tmuxline.vim'
 
-" Colour schemas
-Plug 'arcticicestudio/nord-vim'
+" Solarized schema
+Plug 'altercation/vim-colors-solarized'
 
 " Tmux/Vim integration (seamless navigation between panes)
 Plug 'christoomey/vim-tmux-navigator'
@@ -86,12 +86,6 @@ nnoremap <leader>sr :SidewaysRight<CR>
 
 " Misc
 
-"" Colour schemes config
-set t_Co=256
-set background=dark
-colorscheme nord
-let g:nord_italic_comments = 0
-
 "" numbers.vim
 set number
 
@@ -113,9 +107,6 @@ let g:jsx_ext_required = 0
 "" CtrlSF
 let g:ctrlsf_ackprog = 'ack'
 
-"" NERDcommenter
-let g:NERDSpaceDelims = 1
-
 "" Neoformat
 augroup fmt
   autocmd!
@@ -126,7 +117,7 @@ augroup END
 let g:go_metalinter_autosave = 1
 
 "" Airline settings
-let g:airline_theme = 'nord'
+let g:airline_theme = 'powerlineish'
 let g:airline_powerline_fonts = 1
 
 """ We generate tmux status bar and our prompt from vim
@@ -174,6 +165,11 @@ let g:rg_command = '
   \ -g "!{.config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist}/*" '
 
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
+"" Enable color
+set t_Co=256
+set background=dark
+colorscheme solarized
 
 "" Shared clipboard
 set clipboard=unnamed

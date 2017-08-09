@@ -24,8 +24,6 @@
   $ ln -s ~/dotfiles/editorconfig ~/.editorconfig
   ```
 
-* Install [Nord's palette](https://github.com/arcticicestudio/nord-iterm2) to iTerm
-
 
 ## Vim
 
