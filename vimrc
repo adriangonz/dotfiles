@@ -86,6 +86,11 @@ nnoremap <leader>sr :SidewaysRight<CR>
 
 " Misc
 
+"" Enable color
+"set termguicolors
+set background=dark
+colorscheme solarized
+
 "" numbers.vim
 set number
 
@@ -166,10 +171,6 @@ let g:rg_command = '
 
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
-"" Enable color
-set t_Co=256
-set background=dark
-colorscheme solarized
 
 "" Shared clipboard
 set clipboard=unnamed
