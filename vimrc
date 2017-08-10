@@ -15,7 +15,7 @@ Plug 'edkolev/promptline.vim'
 Plug 'edkolev/tmuxline.vim'
 
 " Solarized schema
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 
 " Tmux/Vim integration (seamless navigation between panes)
 Plug 'christoomey/vim-tmux-navigator'
@@ -87,9 +87,13 @@ nnoremap <leader>sr :SidewaysRight<CR>
 " Misc
 
 "" Enable color
-"set termguicolors
+set termguicolors
 set background=dark
-colorscheme solarized
+colorscheme solarized8_dark
+
+""" Fix for true color https://github.com/lifepillar/vim-solarized8#troubleshooting
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 "" numbers.vim
 set number
@@ -122,8 +126,9 @@ augroup END
 let g:go_metalinter_autosave = 1
 
 "" Airline settings
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'solarized'
 let g:airline_powerline_fonts = 1
+let g:airline_solarized_bg='dark'
 
 """ We generate tmux status bar and our prompt from vim
 """ (that way we are consistent in terms of themes/etc)
