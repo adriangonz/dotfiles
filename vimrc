@@ -98,6 +98,9 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "" numbers.vim
 set number
 
+"" NERDCommenter
+let g:NERDSpaceDelims = 1
+
 "" sw* files
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
@@ -126,9 +129,8 @@ augroup END
 let g:go_metalinter_autosave = 1
 
 "" Airline settings
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'deus'
 let g:airline_powerline_fonts = 1
-let g:airline_solarized_bg='dark'
 
 """ We generate tmux status bar and our prompt from vim
 """ (that way we are consistent in terms of themes/etc)
@@ -175,7 +177,6 @@ let g:rg_command = '
   \ -g "!{.config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist}/*" '
 
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
-
 
 "" Shared clipboard
 set clipboard=unnamed
