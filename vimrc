@@ -50,6 +50,9 @@ Plug 'ap/vim-css-color'
 " Languages
 Plug 'sheerun/vim-polyglot'
 
+" Autocomplete
+Plug 'Shougo/deoplete.nvim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -160,6 +163,9 @@ let g:neoformat_javascript_prettier = {
     \ 'args': ['--stdin'],
     \ 'stdin': 1
     \ }
+
+"" Deoplete config
+let g:deoplete#enable_at_startup = 1
 
 "" fzf config
 nmap <C-p> :FZF<cr>
