@@ -37,6 +37,7 @@
 
     ```console
     $ brew install neovim
+    $ pip3 install neovim
     ```
 
 -   Install [ripgrep](https://github.com/BurntSushi/ripgrep) and [fzf](https://github.com/junegunn/fzf)
@@ -46,22 +47,6 @@
     ```
 
 -   Install all plugins with `:PlugInstall`
-
-### Autocompletion
-
-To have autocompletion we'll use `deoplete`, which requires to set up a couple of things.
-
--   Install python3 neovim's module
-
-    ```console
-    $ pip3 install neovim
-    ```
-
--   Update remote plugins (inside vim)
-
-    ```viml
-    :UpdateRemotePlugins 
-    ```
 
 ## Tmux
 

@@ -51,7 +51,7 @@ Plug 'ap/vim-css-color'
 Plug 'sheerun/vim-polyglot'
 
 " Autocomplete
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Initialize plugin system
 call plug#end()
