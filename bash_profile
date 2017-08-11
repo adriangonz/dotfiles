@@ -1,6 +1,6 @@
 # Some env vars (and setting up PATH)
 export GREP_OPTIONS='--color=auto'
-export EDITOR=vim
+export EDITOR=nvim
 export PATH="$PATH:/usr/local/sbin"
 export PATH="~/.gem/ruby/2.0.0/bin:$PATH"
 
