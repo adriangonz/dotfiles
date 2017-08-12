@@ -15,7 +15,7 @@ Plug 'edkolev/promptline.vim'
 Plug 'edkolev/tmuxline.vim'
 
 " Solarized schema
-Plug 'lifepillar/vim-solarized8'
+Plug 'arcticicestudio/nord-vim'
 
 " Tmux/Vim integration (seamless navigation between panes)
 Plug 'christoomey/vim-tmux-navigator'
@@ -92,7 +92,7 @@ nnoremap <leader>sr :SidewaysRight<CR>
 "" Enable color
 set termguicolors
 set background=dark
-colorscheme solarized8_dark
+colorscheme nord
 
 """ Fix for true color https://github.com/lifepillar/vim-solarized8#troubleshooting
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
