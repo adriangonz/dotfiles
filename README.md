@@ -40,6 +40,12 @@
     $ pip3 install neovim
     ```
 
+-   Link `.nvim`
+
+    ```console
+    $ ln -s ~/dotfiles/nvim ~/.config/nvim
+    ```
+
 -   Install [ripgrep](https://github.com/BurntSushi/ripgrep) and [fzf](https://github.com/junegunn/fzf)
 
     ```console
