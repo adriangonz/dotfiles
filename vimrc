@@ -52,6 +52,8 @@ Plug 'sheerun/vim-polyglot'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn global add tern' }
+Plug 'ervandew/supertab'
 
 " Initialize plugin system
 call plug#end()
@@ -164,9 +166,11 @@ let g:neoformat_javascript_prettier = {
     \ 'stdin': 1
     \ }
 
-"" Deoplete config
+"" Autocomplete config
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
+let g:SuperTabDefaultCompletionType = "<c-n>"
+set completeopt-=preview
 
 "" fzf config
 nmap <C-p> :FZF<cr>
