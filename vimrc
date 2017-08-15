@@ -46,6 +46,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ap/vim-css-color'
+Plug 'jiangmiao/auto-pairs'
 
 " Languages
 Plug 'sheerun/vim-polyglot'
