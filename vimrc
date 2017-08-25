@@ -46,14 +46,13 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ap/vim-css-color'
-Plug 'jiangmiao/auto-pairs'
 
 " Languages
 Plug 'sheerun/vim-polyglot'
 
 " Autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn global add tern' }
+Plug 'roxma/nvim-completion-manager'
+Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 Plug 'ervandew/supertab'
 
 " Initialize plugin system
@@ -168,8 +167,6 @@ let g:neoformat_javascript_prettier = {
     \ }
 
 "" Autocomplete config
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
 let g:SuperTabDefaultCompletionType = "<c-n>"
 set completeopt-=preview
 
