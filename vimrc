@@ -53,6 +53,7 @@ Plug 'sheerun/vim-polyglot'
 " Autocomplete
 Plug 'roxma/nvim-completion-manager'
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+Plug 'calebeby/ncm-css'
 Plug 'ervandew/supertab'
 
 " Initialize plugin system
