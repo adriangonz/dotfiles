@@ -189,5 +189,6 @@ let g:rg_command = '
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
 "" Shared clipboard
-set clipboard=unnamed
+set clipboard^=unnamed
+set nowrap
 
