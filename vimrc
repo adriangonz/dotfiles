@@ -62,7 +62,7 @@ call plug#end()
 " Keymaps
 
 "" Re-map leader
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 
 "" CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -113,8 +113,8 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
 "" Vim sessions
-let g:session_autoload = "no"
-let g:session_autosave = "yes"
+let g:session_autoload = 'no'
+let g:session_autosave = 'yes'
 let g:session_autosave_periodic = 1
 let g:session_autosave_silent = 1
 set exrc
@@ -168,7 +168,7 @@ let g:neoformat_javascript_prettier = {
     \ }
 
 "" Autocomplete config
-let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = '<c-n>'
 set completeopt-=preview
 
 "" fzf config
