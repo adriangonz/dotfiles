@@ -191,4 +191,5 @@ command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>),
 "" Shared clipboard
 set clipboard^=unnamed
 set nowrap
+set foldmethod=syntax
 
