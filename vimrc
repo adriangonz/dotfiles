@@ -46,6 +46,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ap/vim-css-color'
+Plug 'Konfekt/FastFold'
+Plug 'tpope/vim-abolish'
 
 " Languages
 Plug 'sheerun/vim-polyglot'
