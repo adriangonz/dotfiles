@@ -30,3 +30,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Import handy functions
 for f in ~/dotfiles/functions/*; do source $f; done
+
+export PATH="$HOME/.cargo/bin:$PATH"
