@@ -125,7 +125,7 @@ set exrc
 let g:jsx_ext_required = 0
 
 "" CtrlSF
-let g:ctrlsf_ackprog = 'ack'
+let g:ctrlsf_ackprog = 'rg'
 
 "" Neoformat
 augroup fmt
