@@ -139,6 +139,7 @@ let g:go_metalinter_autosave = 1
 "" Airline settings
 let g:airline_theme = 'deus'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tmuxline#enabled = 0
 
 """ We generate tmux status bar and our prompt from vim
 """ (that way we are consistent in terms of themes/etc)
@@ -150,6 +151,8 @@ let g:promptline_preset = {
         \'x' : [ promptline#slices#vcs_branch() ],
         \'y' : [ promptline#slices#git_status() ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
+
+let g:tmuxline_powerline_separators = 1
 
 "" ALE config
 let g:airline#extensions#ale#enabled = 1

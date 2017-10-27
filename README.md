@@ -75,14 +75,25 @@
     $ ln -s ~/dotfiles/tmux ~/.tmux
     ```
 
-## Prompt
+## Prompt and tmux status bar
 
-We generate our prompt from `vim` (thanks to [`edkolev/promptline.vim`](https://github.com/edkolev/promptline.vim)). That way we ensure the style is consistent accross `vim`/`tmux`/`bash`.
+We generate our prompt and tmux status bar from `vim` (thanks to [`edkolev/promptline.vim`](https://github.com/edkolev/promptline.vim) and [`edkolev/tmuxline.vim`](https://github.com/edkolev/tmuxline.vim)).
+That way we ensure the style is consistent accross `vim`/`tmux`/`bash`.
+
+### Prompt
 
 To edit it, checkout the `promptline_preset` variable on `vimrc` and re-generate it as:
 
 ```console
 $ vim +PromptlineSnapshot functions/prompt.sh
+```
+
+### Tmux
+
+To edit it, checkout the `tmuxline_preset` variables on `vimrc` and re-generate it as:
+
+```console
+$ vim +TmuxlineSnapshot tmux/airline.conf
 ```
 
 ## Extra stuff
