@@ -56,10 +56,10 @@
 
 ## Tmux
 
--   Install patched `tmux` (with True Color support)
+-   Install latest `tmux`
 
     ```console
-    $ brew install https://raw.githubusercontent.com/choppsv1/homebrew-term24/master/tmux.rb
+    $ brew install tmux
     ```
 
 -   Link `.tmux.conf` and `tmuxinator`
