@@ -62,6 +62,12 @@
     $ brew install tmux
     ```
 
+-   Install `tpm`
+
+    ```console
+    $ git clone github.com:tmux-plugins/tpm ~/dotfiles/tmux/plugins/tpm
+    ```
+
 -   Link `.tmux.conf` and `tmuxinator`
 
     ```console
