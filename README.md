@@ -68,12 +68,6 @@
     $ ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
     ```
 
--   Enable pane navigation on tmux as on vim (Based on <https://gist.github.com/mislav/5189704>)
-
-    ```console
-    $ curl -fsSL https://gist.github.com/mislav/5189704/raw/install.sh | bash -e
-    ```
-
 ## Prompt
 
 We generate our prompt from `vim` (thanks to [`edkolev/promptline.vim`](https://github.com/edkolev/promptline.vim)). That way we ensure the style is consistent accross `vim`/`tmux`/`bash`.
