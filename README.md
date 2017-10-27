@@ -68,10 +68,11 @@
     $ git clone github.com:tmux-plugins/tpm ~/dotfiles/tmux/plugins/tpm
     ```
 
--   Link `.tmux.conf` and `tmuxinator`
+-   Link `.tmux.conf` and `tmux`
 
     ```console
     $ ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+    $ ln -s ~/dotfiles/tmux ~/.tmux
     ```
 
 ## Prompt
