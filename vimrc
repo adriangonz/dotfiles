@@ -51,6 +51,7 @@ Plug 'tpope/vim-abolish'
 
 " Languages
 Plug 'sheerun/vim-polyglot'
+Plug 'amadeus/vim-mjml'
 
 " Autocomplete
 Plug 'roxma/nvim-completion-manager'
