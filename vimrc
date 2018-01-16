@@ -52,6 +52,7 @@ Plug 'tpope/vim-abolish'
 " Languages
 Plug 'sheerun/vim-polyglot'
 Plug 'amadeus/vim-mjml'
+Plug 'kchmck/vim-coffee-script'
 
 " Autocomplete
 Plug 'roxma/nvim-completion-manager'
@@ -167,6 +168,7 @@ let g:ale_linters = {
 let g:ale_go_gometalinter_options = '--fast'
 
 "" Neoformat config
+let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_javascript_prettier = {
     \ 'exe': 'prettier',
     \ 'args': ['--stdin'],
