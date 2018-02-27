@@ -48,6 +48,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'ap/vim-css-color'
 Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-abolish'
+Plug 'kshenoy/vim-signature'
 
 " Languages
 Plug 'sheerun/vim-polyglot'

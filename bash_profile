@@ -6,7 +6,7 @@ export PATH="~/.gem/ruby/2.0.0/bin:$PATH"
 
 # Config bash_completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-	. $(brew --prefix)/etc/bash_completion
+  . $(brew --prefix)/etc/bash_completion
 fi
 
 # Some alias...
