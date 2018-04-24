@@ -29,6 +29,7 @@ Plug 'xolox/vim-misc'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " Local vimrc
 Plug 'embear/vim-localvimrc'
