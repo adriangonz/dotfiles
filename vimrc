@@ -192,7 +192,8 @@ let g:SuperTabDefaultCompletionType = '<c-n>'
 set completeopt-=preview
 let g:deoplete#enable_at_startup = 1
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript': ['flow-language-server', '--stdio'],
+    \ 'javascript.jsx': ['flow-language-server', '--stdio'],
     \ 'go': ['go-langserver'],
     \ }
 

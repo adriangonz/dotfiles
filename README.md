@@ -60,10 +60,10 @@ We use [langservers](http://langserver.org/) for autocompletion, so these need t
 
 ### Javascript
 
-* Install `javascript-typescript-langserver`
+* Install `flow-language-server`
 
   ```console
-  $ npm i -g javascript-typescript-langserver
+  $ npm i -g flow-language-server
   ```
 
 ### Go
