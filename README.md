@@ -2,78 +2,98 @@
 
 ## Setting up dotfiles
 
--   Clone the repo 
+* Clone the repo
 
-    ```console
-    $ git --recursive git@github.com:adriangonz/dotfiles.git
-    ```
+  ```console
+  $ git --recursive git@github.com:adriangonz/dotfiles.git
+  ```
 
--   Get `brew` (just follow [instructions](https://brew.sh))
+* Get `brew` (just follow [instructions](https://brew.sh))
 
--   Get `Monaco for Powerline` from [here](https://gist.github.com/baopham/1838072/raw/616d338cea8b9dcc3a5b17c12fe3070df1b738c0/Monaco%2520for%2520Powerline.otf) and set it up on `iTerm` and patch it to add [devicons](https://github.com/ryanoasis/nerd-fonts#font-patcher)
+* Get `Monaco for Powerline` from [here](https://gist.github.com/baopham/1838072/raw/616d338cea8b9dcc3a5b17c12fe3070df1b738c0/Monaco%2520for%2520Powerline.otf) and set it up on `iTerm` and patch it to add [devicons](https://github.com/ryanoasis/nerd-fonts#font-patcher)
 
-    ```console
-    $ brew install fontforge
-    $ git clone ryanoasis/nerd-fonts
-    $ fontforge -script font-patcher ~/Library/Fonts/Monaco%20for%20Powerline.otf
-    ```
+  ```console
+  $ brew install fontforge
+  $ git clone ryanoasis/nerd-fonts
+  $ fontforge -script font-patcher ~/Library/Fonts/Monaco%20for%20Powerline.otf
+  ```
 
--   Link `.editorconfig`
+* Link `.editorconfig`
 
-    ```console
-    $ ln -s ~/dotfiles/editorconfig ~/.editorconfig
-    ```
+  ```console
+  $ ln -s ~/dotfiles/editorconfig ~/.editorconfig
+  ```
 
 ## Vim
 
--   Link `.vimrc` and `.vim`
+* Link `.vimrc` and `.vim`
 
-    ```console
-    $ ln -s ~/dotfiles/vimrc ~/.vimrc
-    $ ln -s ~/dotfiles/vim ~/.vim
-    ```
+  ```console
+  $ ln -s ~/dotfiles/vimrc ~/.vimrc
+  $ ln -s ~/dotfiles/vim ~/.vim
+  ```
 
--   Get latest neovim
+* Get latest neovim
 
-    ```console
-    $ brew install neovim
-    $ pip3 install neovim
-    ```
+  ```console
+  $ brew install neovim
+  $ pip3 install neovim
+  ```
 
--   Link `.nvim`
+* Link `.nvim`
 
-    ```console
-    $ ln -s ~/dotfiles/nvim ~/.config/nvim
-    ```
+  ```console
+  $ ln -s ~/dotfiles/nvim ~/.config/nvim
+  ```
 
--   Install [ripgrep](https://github.com/BurntSushi/ripgrep) and [fzf](https://github.com/junegunn/fzf)
+* Install [ripgrep](https://github.com/BurntSushi/ripgrep) and [fzf](https://github.com/junegunn/fzf)
 
-    ```console
-    $ brew install ripgrep fzf
-    ```
+  ```console
+  $ brew install ripgrep fzf
+  ```
 
--   Install all plugins with `:PlugInstall`
+* Install all plugins with `:PlugInstall`
+
+## Autocompletion
+
+We use [langservers](http://langserver.org/) for autocompletion, so these need to be installed separately.
+
+### Javascript
+
+* Install `javascript-typescript-langserver`
+
+  ```console
+  $ npm i -g javascript-typescript-langserver
+  ```
+
+### Go
+
+* Install `go-langserver`
+
+  ```console
+  go get -u github.com/sourcegraph/go-langserver
+  ```
 
 ## Tmux
 
--   Install latest `tmux`
+* Install latest `tmux`
 
-    ```console
-    $ brew install tmux
-    ```
+  ```console
+  $ brew install tmux
+  ```
 
--   Install `tpm`
+* Install `tpm`
 
-    ```console
-    $ git clone github.com:tmux-plugins/tpm ~/dotfiles/tmux/plugins/tpm
-    ```
+  ```console
+  $ git clone github.com:tmux-plugins/tpm ~/dotfiles/tmux/plugins/tpm
+  ```
 
--   Link `.tmux.conf` and `tmux`
+* Link `.tmux.conf` and `tmux`
 
-    ```console
-    $ ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
-    $ ln -s ~/dotfiles/tmux ~/.tmux
-    ```
+  ```console
+  $ ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+  $ ln -s ~/dotfiles/tmux ~/.tmux
+  ```
 
 ## Prompt and tmux status bar
 
@@ -98,15 +118,15 @@ $ vim +TmuxlineSnapshot tmux/airline.conf
 
 ## Extra stuff
 
--   Install `bash-completion`
+* Install `bash-completion`
 
-    ```console
-    $ brew install bash-completion
-    $ brew tap homebrew/completions
-    ```
+  ```console
+  $ brew install bash-completion
+  $ brew tap homebrew/completions
+  ```
 
--   Set up proper `git lg`
+* Set up proper `git lg`
 
-    ```console
-    $ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-    ```
+  ```console
+  $ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+  ```

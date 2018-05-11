@@ -58,10 +58,14 @@ Plug 'amadeus/vim-mjml'
 Plug 'kchmck/vim-coffee-script'
 
 " Autocomplete
-Plug 'roxma/nvim-completion-manager'
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-Plug 'calebeby/ncm-css'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
 Plug 'ervandew/supertab'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 " Initialize plugin system
 call plug#end()
@@ -181,6 +185,11 @@ let g:neoformat_javascript_prettier = {
 "" Autocomplete config
 let g:SuperTabDefaultCompletionType = '<c-n>'
 set completeopt-=preview
+let g:deoplete#enable_at_startup = 1
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'go': ['go-langserver'],
+    \ }
 
 "" fzf config
 nmap <C-p> :FZF<cr>
