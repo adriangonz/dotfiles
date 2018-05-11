@@ -57,7 +57,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'amadeus/vim-mjml'
 Plug 'kchmck/vim-coffee-script'
 
-" Autocomplete
+" Autocompletion
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
@@ -100,6 +100,11 @@ nnoremap <leader>so :OpenSession<Space>
 "" Sideways
 nnoremap <leader>sl :SidewaysLeft<CR>
 nnoremap <leader>sr :SidewaysRight<CR>
+
+"" Autocompletion
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " Misc
 
@@ -182,7 +187,7 @@ let g:neoformat_javascript_prettier = {
     \ 'stdin': 1
     \ }
 
-"" Autocomplete config
+"" Autocompletion config
 let g:SuperTabDefaultCompletionType = '<c-n>'
 set completeopt-=preview
 let g:deoplete#enable_at_startup = 1
