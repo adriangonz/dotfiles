@@ -196,6 +196,7 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'go': ['go-langserver'],
     \ }
+let g:LanguageClient_diagnosticsEnable = 0
 
 "" fzf config
 nmap <C-p> :FZF<cr>
