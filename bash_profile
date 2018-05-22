@@ -37,7 +37,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Android config
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
+export PATH="$ANDROID_HOME/tools/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 
 # Import handy functions
 export PATH="$HOME/bin:$PATH"
