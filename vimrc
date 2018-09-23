@@ -29,6 +29,8 @@ Plug 'xolox/vim-misc'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'
 
 " Local vimrc
 Plug 'embear/vim-localvimrc'
@@ -48,17 +50,22 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'ap/vim-css-color'
 Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-abolish'
+Plug 'kshenoy/vim-signature'
 
 " Languages
 Plug 'sheerun/vim-polyglot'
 Plug 'amadeus/vim-mjml'
 Plug 'kchmck/vim-coffee-script'
 
-" Autocomplete
-Plug 'roxma/nvim-completion-manager'
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-Plug 'calebeby/ncm-css'
+" Autocompletion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
 Plug 'ervandew/supertab'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 " Initialize plugin system
 call plug#end()
@@ -93,6 +100,11 @@ nnoremap <leader>so :OpenSession<Space>
 "" Sideways
 nnoremap <leader>sl :SidewaysLeft<CR>
 nnoremap <leader>sr :SidewaysRight<CR>
+
+"" Autocompletion
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " Misc
 
@@ -175,9 +187,16 @@ let g:neoformat_javascript_prettier = {
     \ 'stdin': 1
     \ }
 
-"" Autocomplete config
+"" Autocompletion config
 let g:SuperTabDefaultCompletionType = '<c-n>'
 set completeopt-=preview
+let g:deoplete#enable_at_startup = 1
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'go': ['go-langserver'],
+    \ }
+let g:LanguageClient_diagnosticsEnable = 0
 
 "" fzf config
 nmap <C-p> :FZF<cr>
