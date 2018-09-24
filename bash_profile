@@ -16,9 +16,11 @@ alias ls="ls -G"
 export PATH="~/.gem/ruby/2.0.0/bin:$PATH"
 
 # Python config 
+export PYENV_VERSION=3.6.4
+eval "$(pyenv init -)"
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=$(which python)
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Go config
@@ -44,9 +46,6 @@ export PATH="$ANDROID_HOME/tools/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-
 export PATH="$HOME/bin:$PATH"
 for f in ~/dotfiles/functions/*; do source $f; done
 
-export PATH="$HOME/.cargo/bin:$PATH"
-
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
-eval "$(pyenv init -)"
