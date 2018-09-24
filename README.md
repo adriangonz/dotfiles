@@ -37,7 +37,7 @@
 
   ```console
   $ brew install neovim
-  $ pip3 install neovim
+  $ pip install neovim
   ```
 
 * Link `.nvim`
