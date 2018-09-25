@@ -46,6 +46,7 @@ export PATH="$ANDROID_HOME/tools/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-
 export PATH="$HOME/bin:$PATH"
 for f in ~/dotfiles/functions/*; do source $f; done
 
+export CHAMBER_NO_PATHS=1
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
