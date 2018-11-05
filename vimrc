@@ -56,6 +56,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'sheerun/vim-polyglot'
 Plug 'amadeus/vim-mjml'
 Plug 'kchmck/vim-coffee-script'
+Plug 'lervag/vimtex'
 
 " Autocompletion
 if has('nvim')
@@ -134,6 +135,11 @@ let g:session_autosave = 'yes'
 let g:session_autosave_periodic = 1
 let g:session_autosave_silent = 1
 set exrc
+
+"" LaTex
+let g:vimtex_compiler_progname = 'nvr'
+let g:polyglot_disabled = ['latex']
+let g:tex_conceal = ''
 
 "" JSX
 let g:jsx_ext_required = 0
