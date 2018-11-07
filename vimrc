@@ -57,6 +57,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'amadeus/vim-mjml'
 Plug 'kchmck/vim-coffee-script'
 Plug 'lervag/vimtex'
+Plug 'djpohly/vim-gvpr'
 
 " Autocompletion
 if has('nvim')
