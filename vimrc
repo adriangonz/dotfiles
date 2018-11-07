@@ -140,6 +140,7 @@ set exrc
 let g:vimtex_compiler_progname = 'nvr'
 let g:polyglot_disabled = ['latex']
 let g:tex_conceal = ''
+set conceallevel=0
 
 "" JSX
 let g:jsx_ext_required = 0
