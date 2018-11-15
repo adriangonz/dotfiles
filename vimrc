@@ -51,6 +51,7 @@ Plug 'ap/vim-css-color'
 Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-abolish'
 Plug 'kshenoy/vim-signature'
+Plug 'tmhedberg/SimpylFold'
 
 " Languages
 Plug 'sheerun/vim-polyglot'
@@ -140,6 +141,19 @@ set exrc
 "" LaTex
 let g:vimtex_compiler_progname = 'nvr'
 let g:polyglot_disabled = ['latex']
+let g:vimtex_fold_enabled = 1
+let  g:vimtex_fold_types = {
+  \ 'sections' : {
+  \   'sections' : [
+  \     'part',
+  \     'chapter',
+  \     'section',
+  \     'subsection',
+  \     'paragraph',
+  \     'subparagraph',
+  \   ]
+  \ },
+  \}
 let g:tex_conceal = ''
 set conceallevel=0
 
