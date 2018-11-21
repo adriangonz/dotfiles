@@ -1,2 +1,1 @@
-backend : MacOSX
-interactive : True
+backend : TkAgg
