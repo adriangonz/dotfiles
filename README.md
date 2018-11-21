@@ -121,14 +121,15 @@ $ vim +TmuxlineSnapshot tmux/airline.conf
 For Data Science, we prefer using plain `LaTeX` and plain `ipython` to write reports
 and experiment. Jupyter is great for small-scale experimenting, but it's not perfect.
 
-- Install `MacTex` from the official site (http://www.tug.org/mactex/)[http://www.tug.org/mactex/].
-- Link `matplotlib` configuration
+- Install `MacTex` from the official site [http://www.tug.org/mactex/](http://www.tug.org/mactex/)
+
+- Link `matplotlib` configuration.
 
   ```console
   $ ln -s ~/dotfiles/matplotlib ~/.matplotlib
   ```
 
-- Link `ipython` configuration
+- Link `ipython` configuration.
 
   ```console
   $ mkdir -f ~/.ipython
@@ -144,19 +145,19 @@ and experiment. Jupyter is great for small-scale experimenting, but it's not per
   $ brew tap homebrew/completions
   ```
 
-* Set up proper `git lg`
+- Set up proper `git lg`
 
   ```console
   $ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
   ```
 
-- Install `ccat` for syntax highlighting on `cat`
+* Install `ccat` for syntax highlighting on `cat`
 
   ```console
   $ brew install ccat
   ```
 
-- Install `httpie` for a better `curl`
+* Install `httpie` for a better `curl`
 
   ```console
   $ brew install httpie
