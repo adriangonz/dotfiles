@@ -139,6 +139,15 @@ let g:session_autosave_silent = 1
 set exrc
 
 "" LaTex
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+      \   '-verbose',
+      \   '-file-line-error',
+      \   '-synctex=1',
+      \   '-interaction=nonstopmode',
+      \   '-shell-escape'
+    \ ],
+    \}
 let g:vimtex_compiler_progname = 'nvr'
 let g:polyglot_disabled = ['latex']
 let g:vimtex_fold_enabled = 1
@@ -198,6 +207,7 @@ let g:ale_linters = {
 \   'html': [],
 \   'javascript': ['eslint'],
 \   'go': ['gofmt', 'gometalinter'],
+\   'python': ['autopep8']
 \}
 let g:ale_go_gometalinter_options = '--fast'
 
@@ -220,6 +230,10 @@ let g:LanguageClient_serverCommands = {
     \ }
 let g:LanguageClient_diagnosticsEnable = 0
 
+"" indentLine
+autocmd FileType markdown let g:indentLine_enabled=0
+autocmd FileType tex let g:indentLine_enabled=0
+
 "" fzf config
 nmap <C-p> :FZF<cr>
 imap <c-x><c-l> <plug>(fzf-complete-line)
@@ -240,5 +254,5 @@ command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>),
 "" Shared clipboard
 set clipboard^=unnamed
 set nowrap
-set foldmethod=syntax
+" set foldmethod=syntax
 

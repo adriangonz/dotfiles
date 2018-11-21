@@ -2,15 +2,15 @@
 
 ## Setting up dotfiles
 
-* Clone the repo
+- Clone the repo
 
   ```console
   $ git --recursive git@github.com:adriangonz/dotfiles.git
   ```
 
-* Get `brew` (just follow [instructions](https://brew.sh))
+- Get `brew` (just follow [instructions](https://brew.sh))
 
-* Get `Monaco for Powerline` from [here](https://gist.github.com/baopham/1838072/raw/616d338cea8b9dcc3a5b17c12fe3070df1b738c0/Monaco%2520for%2520Powerline.otf) and set it up on `iTerm` and patch it to add [devicons](https://github.com/ryanoasis/nerd-fonts#font-patcher)
+- Get `Monaco for Powerline` from [here](https://gist.github.com/baopham/1838072/raw/616d338cea8b9dcc3a5b17c12fe3070df1b738c0/Monaco%2520for%2520Powerline.otf) and set it up on `iTerm` and patch it to add [devicons](https://github.com/ryanoasis/nerd-fonts#font-patcher)
 
   ```console
   $ brew install fontforge
@@ -18,7 +18,7 @@
   $ fontforge -script font-patcher ~/Library/Fonts/Monaco%20for%20Powerline.otf
   ```
 
-* Link `.editorconfig`
+- Link `.editorconfig`
 
   ```console
   $ ln -s ~/dotfiles/editorconfig ~/.editorconfig
@@ -26,33 +26,33 @@
 
 ## Vim
 
-* Link `.vimrc` and `.vim`
+- Link `.vimrc` and `.vim`
 
   ```console
   $ ln -s ~/dotfiles/vimrc ~/.vimrc
   $ ln -s ~/dotfiles/vim ~/.vim
   ```
 
-* Get latest neovim
+- Get latest neovim
 
   ```console
   $ brew install neovim
   $ pip install neovim
   ```
 
-* Link `.nvim`
+- Link `.nvim`
 
   ```console
   $ ln -s ~/dotfiles/nvim ~/.config/nvim
   ```
 
-* Install [ripgrep](https://github.com/BurntSushi/ripgrep) and [fzf](https://github.com/junegunn/fzf)
+- Install [ripgrep](https://github.com/BurntSushi/ripgrep) and [fzf](https://github.com/junegunn/fzf)
 
   ```console
   $ brew install ripgrep fzf
   ```
 
-* Install all plugins with `:PlugInstall`
+- Install all plugins with `:PlugInstall`
 
 ## Autocompletion
 
@@ -60,7 +60,7 @@ We use [langservers](http://langserver.org/) for autocompletion, so these need t
 
 ### Javascript
 
-* Install `javascript-typescript-langserver`
+- Install `javascript-typescript-langserver`
 
   ```console
   $ npm i -g javascript-typescript-langserver
@@ -68,7 +68,7 @@ We use [langservers](http://langserver.org/) for autocompletion, so these need t
 
 ### Go
 
-* Install `go-langserver`
+- Install `go-langserver`
 
   ```console
   go get -u github.com/sourcegraph/go-langserver
@@ -76,19 +76,19 @@ We use [langservers](http://langserver.org/) for autocompletion, so these need t
 
 ## Tmux
 
-* Install latest `tmux`
+- Install latest `tmux`
 
   ```console
   $ brew install tmux
   ```
 
-* Install `tpm`
+- Install `tpm`
 
   ```console
   $ git clone github.com:tmux-plugins/tpm ~/dotfiles/tmux/plugins/tpm
   ```
 
-* Link `.tmux.conf` and `tmux`
+- Link `.tmux.conf` and `tmux`
 
   ```console
   $ ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
@@ -116,9 +116,28 @@ To edit it, checkout the `tmuxline_preset` variables on `vimrc` and re-generate 
 $ vim +TmuxlineSnapshot tmux/airline.conf
 ```
 
+## Data Science
+
+For Data Science, we prefer using plain $\LaTeX$ and plain `ipython` to write reports
+and experiment. Jupyter is great for small-scale experimenting, but it's not perfect.
+
+- Install `MacTex` from the official site (http://www.tug.org/mactex/)[http://www.tug.org/mactex/].
+- Link `matplotlib` configuration
+
+  ```console
+  $ ln -s ~/dotfiles/matplotlib ~/.matplotlib
+  ```
+
+- Link `ipython` configuration
+
+  ```console
+  $ mkdir -f ~/.ipython
+  $ ln -s ~/dotfiles/ipython_config.py ~/.ipython/
+  ```
+
 ## Extra stuff
 
-* Install `bash-completion`
+- Install `bash-completion`
 
   ```console
   $ brew install bash-completion
@@ -129,4 +148,16 @@ $ vim +TmuxlineSnapshot tmux/airline.conf
 
   ```console
   $ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+  ```
+
+- Install `ccat` for syntax highlighting on `cat`
+
+  ```console
+  $ brew install ccat
+  ```
+
+- Install `httpie` for a better `curl`
+
+  ```console
+  $ brew install httpie
   ```
