@@ -105,9 +105,9 @@ nnoremap <leader>sl :SidewaysLeft<CR>
 nnoremap <leader>sr :SidewaysRight<CR>
 
 "" Autocompletion
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
 
 " Misc
 
@@ -227,6 +227,7 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'go': ['go-langserver'],
+    \ 'python': ['pyls'],
     \ }
 let g:LanguageClient_diagnosticsEnable = 0
 

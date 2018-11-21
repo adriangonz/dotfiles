@@ -71,7 +71,15 @@ We use [langservers](http://langserver.org/) for autocompletion, so these need t
 - Install `go-langserver`
 
   ```console
-  go get -u github.com/sourcegraph/go-langserver
+  $ go get -u github.com/sourcegraph/go-langserver
+  ```
+
+### Python
+
+- Install `python-language-server` with all dependencies
+
+  ```console
+  $ pip install 'python-language-server[all]
   ```
 
 ## Tmux
