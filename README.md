@@ -118,7 +118,7 @@ $ vim +TmuxlineSnapshot tmux/airline.conf
 
 ## Data Science
 
-For Data Science, we prefer using plain $\LaTeX$ and plain `ipython` to write reports
+For Data Science, we prefer using plain `LaTeX` and plain `ipython` to write reports
 and experiment. Jupyter is great for small-scale experimenting, but it's not perfect.
 
 - Install `MacTex` from the official site (http://www.tug.org/mactex/)[http://www.tug.org/mactex/].
