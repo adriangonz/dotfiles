@@ -140,8 +140,8 @@ and experiment. Jupyter is great for small-scale experimenting, but it's not per
 - Link `ipython` configuration.
 
   ```console
-  $ mkdir -f ~/.ipython
-  $ ln -s ~/dotfiles/ipython_config.py ~/.ipython/
+  $ ipython profile create
+  $ ln -s ~/dotfiles/ipython_config.py ~/.ipython/profile_default/ipython_config.py
   ```
 
 ## Extra stuff
