@@ -1,2 +1,6 @@
 backend : TkAgg
 interactive : True
+pgf.rcfonts : False
+figure.figsize : 8, 6
+figure.dpi : 150
+savefig.dpi : 300

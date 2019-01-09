@@ -52,6 +52,7 @@ Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-abolish'
 Plug 'kshenoy/vim-signature'
 Plug 'tmhedberg/SimpylFold'
+Plug 'godlygeek/tabular'
 
 " Languages
 Plug 'sheerun/vim-polyglot'
@@ -59,6 +60,8 @@ Plug 'amadeus/vim-mjml'
 Plug 'kchmck/vim-coffee-script'
 Plug 'lervag/vimtex'
 Plug 'djpohly/vim-gvpr'
+Plug 'szymonmaszke/vimpyter'
+Plug 'plasticboy/vim-markdown'
 
 " Autocompletion
 if has('nvim')
@@ -139,19 +142,10 @@ let g:session_autosave_silent = 1
 set exrc
 
 "" LaTex
-let g:vimtex_compiler_latexmk = {
-    \ 'options' : [
-      \   '-verbose',
-      \   '-file-line-error',
-      \   '-synctex=1',
-      \   '-interaction=nonstopmode',
-      \   '-shell-escape'
-    \ ],
-    \}
 let g:vimtex_compiler_progname = 'nvr'
-let g:polyglot_disabled = ['latex']
+let g:polyglot_disabled = ['latex', 'markdown']
 let g:vimtex_fold_enabled = 1
-let  g:vimtex_fold_types = {
+let g:vimtex_fold_types = {
   \ 'sections' : {
   \   'sections' : [
   \     'part',
@@ -165,6 +159,11 @@ let  g:vimtex_fold_types = {
   \}
 let g:tex_conceal = ''
 set conceallevel=0
+
+"" Wrap text at 80 characters
+set fo?
+set fo+=t
+au BufRead,BufNewFile *.md setlocal textwidth=80
 
 "" JSX
 let g:jsx_ext_required = 0
