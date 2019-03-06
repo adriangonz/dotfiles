@@ -68,10 +68,6 @@ if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
 Plug 'ervandew/supertab'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 
 " Initialize plugin system
 call plug#end()
@@ -106,11 +102,6 @@ nnoremap <leader>so :OpenSession<Space>
 "" Sideways
 nnoremap <leader>sl :SidewaysLeft<CR>
 nnoremap <leader>sr :SidewaysRight<CR>
-
-"" Autocompletion
-nnoremap <silent> gh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gr :call LanguageClient#textDocument_rename()<CR>
 
 "" Latex
 nnoremap <leader>tc :VimtexCompile<CR>
@@ -209,28 +200,21 @@ let g:ale_linters = {
 \   'html': [],
 \   'javascript': ['eslint'],
 \   'go': ['gofmt', 'gometalinter'],
-\   'python': ['autopep8']
+\   'python': ['flake8']
 \}
 let g:ale_go_gometalinter_options = '--fast'
 
 "" Neoformat config
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_javascript_prettier = {
-    \ 'exe': 'prettier',
-    \ 'args': ['--stdin'],
-    \ 'stdin': 1
+    \ 'exe': 'npx',
+    \ 'args': ['prettier', '--parser', 'babel'],
     \ }
 
 "" Autocompletion config
 let g:SuperTabDefaultCompletionType = '<c-n>'
 set completeopt-=preview
 let g:deoplete#enable_at_startup = 1
-let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['javascript-typescript-stdio'],
-    \ 'go': ['go-langserver'],
-    \ }
-let g:LanguageClient_diagnosticsEnable = 0
 
 "" indentLine
 autocmd FileType markdown let g:indentLine_enabled=0
@@ -256,5 +240,5 @@ command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>),
 "" Shared clipboard
 set clipboard^=unnamed
 set nowrap
-" set foldmethod=syntax
+set foldmethod=syntax
 

@@ -16,8 +16,12 @@ alias ls="ls -G"
 export PATH="~/.gem/ruby/2.0.0/bin:$PATH"
 
 # Python config 
-export PYENV_VERSION=3.6.4
+## pyenv config
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+## virtualenvs
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
 export VIRTUALENVWRAPPER_PYTHON=$(which python)
