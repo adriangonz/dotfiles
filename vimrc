@@ -135,7 +135,7 @@ let g:session_autosave_periodic = 1
 let g:session_autosave_silent = 1
 set exrc
 
-"" LaTex
+"" LaTex and Markdown
 let g:vimtex_compiler_progname = 'nvr'
 let g:polyglot_disabled = ['latex', 'markdown']
 let g:vimtex_fold_enabled = 1
@@ -153,6 +153,7 @@ let g:vimtex_fold_types = {
   \}
 let g:tex_conceal = ''
 set conceallevel=0
+let g:vim_markdown_math = 1
 
 "" Wrap text at 80 characters
 set fo?
