@@ -201,7 +201,8 @@ let g:ale_linters = {
 \   'html': [],
 \   'javascript': ['eslint'],
 \   'go': ['gofmt', 'gometalinter'],
-\   'python': ['flake8']
+\   'python': ['flake8'],
+\   'tex': ['proselint']
 \}
 let g:ale_go_gometalinter_options = '--fast'
 
