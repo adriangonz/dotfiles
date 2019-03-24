@@ -14,7 +14,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/promptline.vim'
 Plug 'edkolev/tmuxline.vim'
 
-" Solarized schema
+" Nord schema
 Plug 'arcticicestudio/nord-vim'
 
 " Tmux/Vim integration (seamless navigation between panes)
@@ -64,10 +64,11 @@ Plug 'szymonmaszke/vimpyter'
 Plug 'plasticboy/vim-markdown'
 
 " Autocompletion
+Plug 'sirver/ultisnips'
+Plug 'ervandew/supertab'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
-Plug 'ervandew/supertab'
 
 " Initialize plugin system
 call plug#end()
@@ -215,8 +216,16 @@ let g:neoformat_javascript_prettier = {
 
 "" Autocompletion config
 let g:SuperTabDefaultCompletionType = '<c-n>'
-set completeopt-=preview
 let g:deoplete#enable_at_startup = 1
+set completeopt-=preview
+
+""" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetsDir=$HOME."/dotfiles/snips"
+let g:UltiSnipsSnippetDirectories=[$HOME."/dotfiles/snips"]
+let g:UltiSnipsEditSplit="vertical"
 
 "" indentLine
 autocmd FileType markdown let g:indentLine_enabled=0
