@@ -153,7 +153,7 @@ let g:vimtex_fold_types = {
   \ },
   \}
 let g:tex_conceal = ''
-set conceallevel=0
+" set conceallevel=0
 let g:vim_markdown_math = 1
 
 "" Wrap text at 80 characters
@@ -203,7 +203,8 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'go': ['gofmt', 'gometalinter'],
 \   'python': ['flake8'],
-\   'tex': ['proselint']
+\   'tex': ['proselint'],
+\   'pug': ['pug-lint']
 \}
 let g:ale_go_gometalinter_options = '--fast'
 
@@ -211,7 +212,7 @@ let g:ale_go_gometalinter_options = '--fast'
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_javascript_prettier = {
     \ 'exe': 'npx',
-    \ 'args': ['prettier', '--parser', 'babel'],
+    \ 'args': ['prettier', '--parser', 'babel', '--config', '.prettierrc.json'],
     \ }
 
 "" Autocompletion config

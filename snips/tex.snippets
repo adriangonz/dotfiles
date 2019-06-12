@@ -1,11 +1,40 @@
 snippet eq* "equation* environment"
 \begin{equation*}
-	${1}
+  ${1}
 \end{equation*}
 endsnippet
 
 snippet al* "align* environment"
 \begin{align*}
-	${1}
+  ${1}
 \end{align*}
+endsnippet
+
+snippet fig "figure"
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{$1}
+
+  \caption{%
+		$2
+	}\label{$3}
+\end{figure}
+endsnippet
+
+snippet tab "table"
+\begin{table}[H]
+  \centering
+
+  \begin{tabular}{@{}$1@{}}
+    \toprule
+    $2 \\
+    \midrule
+    $3 \\
+    \bottomrule
+  \end{tabular}
+
+  \caption{%
+    $4
+  }\label{$5}
+\end{table}
 endsnippet
