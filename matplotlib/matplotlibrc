@@ -1,6 +1,15 @@
+% Choose backend
 backend : TkAgg
 interactive : True
-pgf.rcfonts : False
-figure.figsize : 8, 6
+
+% Good image size for modern hiDPI screens
+figure.figsize : 6, 4
 figure.dpi : 150
 savefig.dpi : 300
+
+% To match Latex's font
+pgf.rcfonts : False
+mathtext.fontset : custom
+mathtext.rm : Bitstream Vera Sans
+mathtext.it : Bitstream Vera Sans:italic
+mathtext.bf : Bitstream Vera Sans:bold

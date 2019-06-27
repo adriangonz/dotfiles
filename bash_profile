@@ -54,3 +54,12 @@ export CHAMBER_NO_PATHS=1
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '~/google-cloud-sdk/path.bash.inc' ]; then
+  . '~/google-cloud-sdk/path.bash.inc';
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '~/google-cloud-sdk/completion.bash.inc' ]; then
+  . '~/google-cloud-sdk/completion.bash.inc';
+fi
