@@ -9,5 +9,5 @@ savefig.dpi : 300
 
 # To match Latex's font
 pgf.rcfonts : False
-mathtext.fontset : stix 
+mathtext.fontset : cm
 font.family : STIXGeneral 
