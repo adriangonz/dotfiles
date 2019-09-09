@@ -155,6 +155,8 @@ let g:vimtex_fold_types = {
 let g:tex_conceal = ''
 " set conceallevel=0
 let g:vim_markdown_math = 1
+" .tex file seem to be consistently getting filetex (instead of tex)
+au BufRead,BufNewFile *.tex setfiletype tex
 
 "" Wrap text at 80 characters
 set fo?
@@ -253,4 +255,5 @@ command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>),
 set clipboard^=unnamed
 set nowrap
 set foldmethod=syntax
+set spell
 
