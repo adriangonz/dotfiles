@@ -66,3 +66,7 @@ fi
 
 # KIND config
 export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/kaseyo/.sdkman"
+[[ -s "/Users/kaseyo/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/kaseyo/.sdkman/bin/sdkman-init.sh"
