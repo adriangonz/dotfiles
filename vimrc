@@ -62,6 +62,7 @@ Plug 'lervag/vimtex'
 Plug 'djpohly/vim-gvpr'
 Plug 'szymonmaszke/vimpyter'
 Plug 'plasticboy/vim-markdown'
+Plug 'artur-shaik/vim-javacomplete2'
 
 " Autocompletion
 Plug 'sirver/ultisnips'
@@ -212,6 +213,8 @@ let g:ale_go_gometalinter_options = '--fast'
 
 "" Neoformat config
 let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_xml = []
+let g:neoformat_enabled_java = []
 let g:neoformat_javascript_prettier = {
     \ 'exe': 'npx',
     \ 'args': ['prettier', '--parser', 'babel', '--config', '.prettierrc.json'],
