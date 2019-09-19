@@ -54,14 +54,17 @@ export CHAMBER_NO_PATHS=1
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
+# Force to use python3
+export CLOUDSDK_PYTHON=python
+
 # Update PATH for the Google Cloud SDK
-if [ -f '~/google-cloud-sdk/path.bash.inc' ]; then
-  . '~/google-cloud-sdk/path.bash.inc';
+if [ -f ~/google-cloud-sdk/path.bash.inc ]; then
+  . ~/google-cloud-sdk/path.bash.inc;
 fi
 
 # Enable shell command completion for gcloud
-if [ -f '~/google-cloud-sdk/completion.bash.inc' ]; then
-  . '~/google-cloud-sdk/completion.bash.inc';
+if [ -f ~/google-cloud-sdk/completion.bash.inc ]; then
+  . ~/google-cloud-sdk/completion.bash.inc;
 fi
 
 # KIND config
