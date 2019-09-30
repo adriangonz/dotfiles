@@ -159,22 +159,11 @@ let g:vim_markdown_math = 1
 " .tex file seem to be consistently getting filetex (instead of tex)
 au BufRead,BufNewFile *.tex setfiletype tex
 
-"" Wrap text at 80 characters
-set fo?
-set fo+=t
-au BufRead,BufNewFile *.md setlocal textwidth=80
-
 "" JSX
 let g:jsx_ext_required = 0
 
 "" CtrlSF
 let g:ctrlsf_ackprog = 'rg'
-
-"" Neoformat
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
 
 "" vim-go
 let g:go_metalinter_autosave = 1
@@ -212,6 +201,11 @@ let g:ale_linters = {
 let g:ale_go_gometalinter_options = '--fast'
 
 "" Neoformat config
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * Neoformat
+augroup END
+
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_xml = []
 let g:neoformat_enabled_java = []
