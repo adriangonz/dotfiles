@@ -1,16 +1,21 @@
-# Lines configured by zsh-newuser-install
+unsetopt beep
+
+# History config
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-unsetopt beep
+
+# Vim bindings
 bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
+
 zstyle :compinstall filename '/home/agm/.zshrc'
 
+# Completions 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
+
+# Alias
+alias grep='grep --color=auto'
 
 # Oh My Zsh plugins
 plugins=(

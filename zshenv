@@ -2,7 +2,6 @@
 export GREP_OPTIONS='--color=auto'
 export EDITOR=vim
 
-
 # Python config 
 #
 ## pyenv config
