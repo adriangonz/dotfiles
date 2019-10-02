@@ -1,6 +1,5 @@
-# Some env vars (and setting up PATH)
-export GREP_OPTIONS='--color=auto'
-export EDITOR=vim
+# Some env vars
+export EDITOR=nvim
 
 # Python config 
 #
@@ -21,3 +20,10 @@ for f in ~/dotfiles/functions/*; do source $f; done
 # Locales
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
+
+# Go config
+export GOPATH=~/.golang
+export PATH=$PATH:$GOPATH/bin
+
+# KIND config
+export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"

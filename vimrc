@@ -63,6 +63,7 @@ Plug 'djpohly/vim-gvpr'
 Plug 'szymonmaszke/vimpyter'
 Plug 'plasticboy/vim-markdown'
 Plug 'artur-shaik/vim-javacomplete2'
+Plug 'neoclide/jsonc.vim'
 
 " Autocompletion
 Plug 'sirver/ultisnips'
@@ -207,6 +208,7 @@ augroup fmt
 augroup END
 
 let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_jsonc = ['prettier']
 let g:neoformat_enabled_xml = []
 let g:neoformat_enabled_java = []
 let g:neoformat_javascript_prettier = {
@@ -250,6 +252,7 @@ command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>),
 
 "" Shared clipboard
 set clipboard^=unnamed
+set clipboard+=unnamedplus
 set nowrap
 set foldmethod=syntax
 set spell
