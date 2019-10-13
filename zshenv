@@ -27,3 +27,7 @@ export PATH=$PATH:$GOPATH/bin
 
 # KIND config
 export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
+
+if [ -f /opt/miniconda3/etc/profile.d/conda.sh ]; then
+  source /opt/miniconda3/etc/profile.d/conda.sh
+fi
