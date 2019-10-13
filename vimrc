@@ -211,6 +211,7 @@ let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_jsonc = ['prettier']
 let g:neoformat_enabled_xml = []
 let g:neoformat_enabled_java = []
+let g:neoformat_enabled_python = []
 let g:neoformat_javascript_prettier = {
     \ 'exe': 'npx',
     \ 'args': ['prettier', '--parser', 'babel', '--config', '.prettierrc.json'],
