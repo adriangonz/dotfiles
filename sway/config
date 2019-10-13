@@ -8,22 +8,28 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+set $alt Mod1
+#
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
+#
 # Use alacritty
 set $term alacritty
+#
 # Config wofi as application launcher
 set $menu wofi --show drun -i | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_2048x1536.png fill
+output * bg ~/dotfiles/wallpapers/arch-nord.png fill
+#
 # Scale of laptop screen (HiDPI)
-output eDP-1 scale 1
+output eDP-1 pos 0 0 res 2560x1440
+output HDMI-A-2 pos 2560 0 res 2560x1440
 
 ### Idle configuration
 #
@@ -63,6 +69,10 @@ input * xkb_layout "gb"
 
   # Exit sway (logs you out of your Wayland session)
   bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+  # Screenshots (Mac-like shortcut)
+  bindsym --release $alt+Shift+4 exec grim -g \"$(slurp)" - | wl-copy
+
 #
 # Moving around:
 #
@@ -91,6 +101,7 @@ input * xkb_layout "gb"
   bindsym $mod+8 workspace 8
   bindsym $mod+9 workspace 9
   bindsym $mod+0 workspace 10
+
   # Move focused container to workspace
   bindsym $mod+Shift+1 move container to workspace 1
   bindsym $mod+Shift+2 move container to workspace 2
@@ -104,6 +115,10 @@ input * xkb_layout "gb"
   bindsym $mod+Shift+0 move container to workspace 10
   # Note: workspaces can have any name you want, not just numbers.
   # We just use 1-10 as the default.
+  #
+  # Move workspaces 
+  bindsym $mod+$alt+$left move workspace to output left
+  bindsym $mod+$alt+$right move workspace to output right 
 #
 # Layout stuff:
 #
@@ -167,6 +182,17 @@ bindsym $mod+r mode "resize"
 bar {
   swaybar_command waybar
 }
+
+
+#
+# Status Bar:
+#
+# Remove title
+default_border pixel 1
+#
+# Increase gap between windows
+# gaps inner 0 
+# gaps outer 0
 
 include /etc/sway/config.d/*
 
