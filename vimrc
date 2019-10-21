@@ -181,9 +181,8 @@ let g:airline#extensions#tmuxline#enabled = 0
 """ (that way we are consistent in terms of themes/etc)
 """ This sets the config for each one
 let g:promptline_preset = {
-        \'a' : [ promptline#slices#python_virtualenv() ],
-        \'b' : [ promptline#slices#user() ],
-        \'c' : [ promptline#slices#cwd() ],
+        \'b' : [ promptline#slices#python_virtualenv() ],
+        \'c' : [ promptline#slices#cwd({ 'dir_limit': 2 }) ],
         \'x' : [ promptline#slices#vcs_branch() ],
         \'y' : [ promptline#slices#git_status() ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
