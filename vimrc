@@ -37,7 +37,7 @@ Plug 'embear/vim-localvimrc'
 
 " Linters/etc
 Plug 'sbdchd/neoformat'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 
 " Handy tools for editing files
@@ -163,6 +163,9 @@ au BufRead,BufNewFile *.tex setfiletype tex
 "" JSX
 let g:jsx_ext_required = 0
 
+"" XML
+let g:xml_syntax_folding=1
+
 "" CtrlSF
 let g:ctrlsf_ackprog = 'rg'
 
@@ -197,7 +200,8 @@ let g:ale_linters = {
 \   'go': ['gofmt', 'gometalinter'],
 \   'python': ['flake8'],
 \   'tex': ['proselint'],
-\   'pug': ['pug-lint']
+\   'pug': ['pug-lint'],
+\   'java': ['checkstyle']
 \}
 let g:ale_go_gometalinter_options = '--fast'
 
@@ -209,13 +213,15 @@ augroup END
 
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_jsonc = ['prettier']
-let g:neoformat_enabled_xml = []
 let g:neoformat_enabled_java = []
 let g:neoformat_enabled_python = []
-let g:neoformat_javascript_prettier = {
-    \ 'exe': 'npx',
-    \ 'args': ['prettier', '--parser', 'babel', '--config', '.prettierrc.json'],
-    \ }
+let g:neoformat_java_google = {
+            \ 'exe': 'google-java-format',
+            \ 'args': ['-'],
+            \ 'stdin': 1, 
+            \ }
+
+let g:neoformat_enabled_java = ['google']
 
 "" Autocompletion config
 let g:SuperTabDefaultCompletionType = '<c-n>'
