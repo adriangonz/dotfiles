@@ -30,6 +30,7 @@ output * bg ~/dotfiles/wallpapers/arch-nord.png fill
 # Scale of laptop screen (HiDPI)
 output eDP-1 pos 0 0 res 2560x1440
 output HDMI-A-2 pos 2560 0 res 2560x1440
+# output HDMI-A-2 pos 2560 0 res 1920x1080 scale 1
 
 ### Idle configuration
 #
@@ -73,6 +74,17 @@ input * xkb_layout "gb"
   # Screenshots (Mac-like shortcut)
   bindsym --release $alt+Shift+4 exec grim -g \"$(slurp)" - | wl-copy
 
+  # Backlights
+  bindsym XF86MonBrightnessUp exec light -A 10
+  bindsym XF86MonBrightnessDown exec light -U 10
+
+  # Audio
+  bindsym XF86AudioMute exec pulsemixer --toggle-mute
+  bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +10
+  bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -10
+  # TODO: How to get currently selected source?
+  # bindsym XF86AudioMicMute
+#
 #
 # Moving around:
 #
