@@ -26,8 +26,12 @@ export GOPATH=~/.golang
 export PATH=$PATH:$GOPATH/bin
 
 # KIND config
-export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
+export KUBECONFIG=$HOME/.kube/kube-config
+export KUBECONFIG="$KUBECONFIG:$(kind get kubeconfig-path --name="kind")"
 
 if [ -f /opt/miniconda3/etc/profile.d/conda.sh ]; then
   source /opt/miniconda3/etc/profile.d/conda.sh
 fi
+
+# Jupyter Lab config
+export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
