@@ -33,7 +33,6 @@ antigen bundle command-not-found
 ## Other bundles
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
-antigen theme denysdovhan/spaceship-prompt
 #
 ## Apply
 antigen apply
