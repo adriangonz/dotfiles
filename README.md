@@ -159,6 +159,13 @@ and experiment. Jupyter is great for small-scale experimenting, but it's not per
   $ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
   ```
 
+- Add global `.gitignore`
+
+  ```console
+  $ ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
+  $ git config --global core.excludesfile ~/.gitignore_global
+  ```
+
 * Install `ccat` for syntax highlighting on `cat`
 
   ```console
