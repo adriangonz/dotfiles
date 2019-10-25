@@ -11,7 +11,9 @@ Plug 'junegunn/fzf'
 " Powerline footer (tmux also depends on this)
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/promptline.vim'
+"" Temporarily while https://github.com/edkolev/promptline.vim/pull/79
+"" doesn't get merged
+Plug 'adriangonz/promptline.vim', { 'branch': 'kubernetes-support' }
 Plug 'edkolev/tmuxline.vim'
 
 " Nord schema
@@ -155,7 +157,7 @@ let g:vimtex_fold_types = {
   \ },
   \}
 let g:tex_conceal = ''
-" set conceallevel=0
+set conceallevel=0
 let g:vim_markdown_math = 1
 " .tex file seem to be consistently getting filetex (instead of tex)
 au BufRead,BufNewFile *.tex setfiletype tex
@@ -181,7 +183,8 @@ let g:airline#extensions#tmuxline#enabled = 0
 """ (that way we are consistent in terms of themes/etc)
 """ This sets the config for each one
 let g:promptline_preset = {
-        \'b' : [ promptline#slices#python_virtualenv() ],
+        \'a' : [ promptline#slices#python_virtualenv() ],
+        \'b' : [ promptline#slices#kubernetes() ],
         \'c' : [ promptline#slices#cwd({ 'dir_limit': 2 }) ],
         \'x' : [ promptline#slices#vcs_branch() ],
         \'y' : [ promptline#slices#git_status() ],
@@ -212,8 +215,7 @@ augroup END
 
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_jsonc = ['prettier']
-let g:neoformat_enabled_java = []
-let g:neoformat_enabled_python = []
+let g:neoformat_enabled_python = ['black']
 let g:neoformat_java_google = {
             \ 'exe': 'google-java-format',
             \ 'args': ['-'],
