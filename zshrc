@@ -17,6 +17,9 @@ compinit
 # Alias
 alias grep='grep --color=auto'
 
+# NVM
+source /usr/share/nvm/init-nvm.sh
+
 # Antigen config
 ## TODO: Make it cross-platform
 source /usr/share/zsh/share/antigen.zsh
