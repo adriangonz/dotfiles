@@ -55,6 +55,7 @@ Plug 'tpope/vim-abolish'
 Plug 'kshenoy/vim-signature'
 Plug 'tmhedberg/SimpylFold'
 Plug 'godlygeek/tabular'
+Plug 'lingnand/pandoc-preview.vim'
 
 " Languages
 Plug 'sheerun/vim-polyglot'
@@ -257,6 +258,9 @@ let g:rg_command = '
   \ -g "!{.config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist}/*" '
 
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
+"" pandoc-preview.vim config
+let g:pandoc_preview_pdf_cmd = "zathura" 
 
 "" Shared clipboard
 set clipboard^=unnamed

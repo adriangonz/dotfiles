@@ -26,7 +26,7 @@ export GOPATH=~/.golang
 export PATH=$PATH:$GOPATH/bin
 
 # KIND config
-export KUBECONFIG=$HOME/.kube/kube-config
+export KUBECONFIG=$HOME/.kube/config
 export KUBECONFIG="$KUBECONFIG:$(kind get kubeconfig-path --name="kind")"
 
 if [ -f /opt/miniconda3/etc/profile.d/conda.sh ]; then
