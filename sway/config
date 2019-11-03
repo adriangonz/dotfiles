@@ -84,6 +84,9 @@ input * xkb_layout "gb"
   bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -10
   # TODO: How to get currently selected source?
   # bindsym XF86AudioMicMute
+
+  # Lock screen
+  bindsym $mod+Shift+Delete exec swaylock -f
 #
 #
 # Moving around:
@@ -197,14 +200,10 @@ bar {
 
 
 #
-# Status Bar:
+# Appearance:
 #
 # Remove title
 default_border pixel 1
-#
-# Increase gap between windows
-# gaps inner 0 
-# gaps outer 0
 
 include /etc/sway/config.d/*
 
