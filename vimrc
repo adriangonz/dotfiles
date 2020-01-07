@@ -67,6 +67,7 @@ Plug 'szymonmaszke/vimpyter'
 Plug 'plasticboy/vim-markdown'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'neoclide/jsonc.vim'
+Plug 'towolf/vim-helm'
 
 " Autocompletion
 Plug 'sirver/ultisnips'
@@ -200,13 +201,13 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {
 \   'html': [],
 \   'javascript': ['eslint'],
-\   'go': ['gofmt', 'gometalinter'],
+\   'go': ['gofmt', 'golangci-lint'],
 \   'python': ['flake8'],
 \   'tex': ['proselint'],
 \   'pug': ['pug-lint'],
 \   'java': ['checkstyle']
 \}
-let g:ale_go_gometalinter_options = '--fast'
+let g:ale_go_golangci_lint_package = 1
 
 "" Neoformat config
 augroup fmt

@@ -16,9 +16,8 @@ compinit
 
 # Alias
 alias grep='grep --color=auto'
-
-# NVM
-source /usr/share/nvm/init-nvm.sh
+alias tb='taskbook'
+alias k='kubectl'
 
 # Antigen config
 ## TODO: Make it cross-platform
@@ -32,6 +31,12 @@ antigen bundle git
 antigen bundle pip
 antigen bundle command-not-found
 antigen bundle gcloud
+antigen bundle zsh
+
+# asdf
+ASDF_DIR=/opt/asdf-vm
+antigen bundle asdf
+
 #
 #
 ## Other bundles
@@ -40,3 +45,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 #
 ## Apply
 antigen apply
+
+# Python config 
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=$(asdf which python)
+source $(asdf where python)/bin/virtualenvwrapper.sh

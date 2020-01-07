@@ -27,10 +27,23 @@ set $menu wofi --show drun -i | xargs swaymsg exec --
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/dotfiles/wallpapers/arch-nord.png fill
 #
-# Scale of laptop screen (HiDPI)
-output eDP-1 pos 0 0 res 2560x1440
-output HDMI-A-2 pos 2560 0 res 2560x1440
+# List available outputs as `swaymsg -t get_outputs`
+#
+# Office
+# output eDP-1 pos 0 0 res 2560x1440 scale 1
+# output HDMI-A-2 pos 2560 0 res 2560x1440 scale 1
+# 
+# Office 2
+output HDMI-A-2 pos 0 0 res 1920x1080 scale 1
+output eDP-1 pos 0 1080 res 2560x1440 scale 1
+#
+# Home
+# output eDP-1 pos 0 0 res 2560x1440 scale 1
 # output HDMI-A-2 pos 2560 0 res 1920x1080 scale 1
+#
+# Home 2
+# output HDMI-A-2 pos 0 0 res 1920x1080 scale 1
+# output eDP-1 pos 0 1080 res 2560x1440 scale 1
 
 ### Idle configuration
 #
@@ -42,8 +55,21 @@ exec swayidle -w \
 
 ### Input configuration
 #
+# List available inputs as `swaymsg -t get_inputs`
+#
 # We will assume UK keyboard by default 
 input * xkb_layout "gb"
+#
+# TouchPad config
+input 2:7:SynPS/2_Synaptics_TouchPad accel_profile adaptive
+input 2:7:SynPS/2_Synaptics_TouchPad drag enabled
+input 2:7:SynPS/2_Synaptics_TouchPad dwt disabled
+input 2:7:SynPS/2_Synaptics_TouchPad pointer_accel 0.3
+input 2:7:SynPS/2_Synaptics_TouchPad scroll_factor 1.3
+input 2:7:SynPS/2_Synaptics_TouchPad tap enabled
+input 2:7:SynPS/2_Synaptics_TouchPad tap_button_map lrm
+
+
 
 ### Key bindings
 #
@@ -80,8 +106,8 @@ input * xkb_layout "gb"
 
   # Audio
   bindsym XF86AudioMute exec pulsemixer --toggle-mute
-  bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +10
-  bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -10
+  bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5
+  bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5
   # TODO: How to get currently selected source?
   # bindsym XF86AudioMicMute
 
@@ -134,6 +160,8 @@ input * xkb_layout "gb"
   # Move workspaces 
   bindsym $mod+$alt+$left move workspace to output left
   bindsym $mod+$alt+$right move workspace to output right 
+  bindsym $mod+$alt+$up move workspace to output up
+  bindsym $mod+$alt+$down move workspace to output down
 #
 # Layout stuff:
 #
@@ -204,6 +232,11 @@ bar {
 #
 # Remove title
 default_border pixel 1
+#
+# Class                   Border    Background  Text      Indicator   Child_border
+client.focused            #a3be8c   #a3be8c     #2e3440   #2e3440     #a3be8c
+client.focused_inactive   #a3be8c   #a3be8c     #2e3440   #2e3440     #a3be8c
+client.unfocused          #4c566a   #4c566a     #eceff4   #eceff4     #4c566a
 
 include /etc/sway/config.d/*
 
