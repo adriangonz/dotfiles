@@ -56,6 +56,8 @@ Plug 'kshenoy/vim-signature'
 Plug 'tmhedberg/SimpylFold'
 Plug 'godlygeek/tabular'
 Plug 'lingnand/pandoc-preview.vim'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 " Languages
 Plug 'sheerun/vim-polyglot'
@@ -268,5 +270,5 @@ set clipboard^=unnamed
 set clipboard+=unnamedplus
 set nowrap
 set foldmethod=syntax
-set spell
+" set spell
 
