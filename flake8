@@ -1,0 +1,3 @@
+[flake8]
+# To be the same as black
+max-line-length = 88
