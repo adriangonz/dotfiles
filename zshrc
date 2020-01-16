@@ -32,10 +32,10 @@ antigen bundle pip
 antigen bundle command-not-found
 antigen bundle gcloud
 antigen bundle zsh
-
-# asdf
-ASDF_DIR=/opt/asdf-vm
+export ASDF_DIR=/opt/asdf-vm 
 antigen bundle asdf
+antigen bundle networkmanager
+antigen bundle bluetoothctl
 
 #
 #
@@ -50,3 +50,4 @@ antigen apply
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=$(asdf which python)
 source $(asdf where python)/bin/virtualenvwrapper.sh
+export PYTHONBREAKPOINT=ipdb.set_trace
