@@ -66,7 +66,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'lervag/vimtex'
 Plug 'djpohly/vim-gvpr'
 Plug 'szymonmaszke/vimpyter'
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'neoclide/jsonc.vim'
 Plug 'towolf/vim-helm'
@@ -146,7 +146,7 @@ set exrc
 
 "" LaTex and Markdown
 let g:vimtex_compiler_progname = 'nvr'
-let g:polyglot_disabled = ['latex', 'markdown']
+let g:polyglot_disabled = ['latex']
 let g:vimtex_fold_enabled = 1
 let g:vimtex_fold_types = {
   \ 'sections' : {
@@ -162,7 +162,7 @@ let g:vimtex_fold_types = {
   \}
 let g:tex_conceal = ''
 set conceallevel=0
-let g:vim_markdown_math = 1
+" let g:vim_markdown_math = 1
 " .tex file seem to be consistently getting filetex (instead of tex)
 au BufRead,BufNewFile *.tex setfiletype tex
 

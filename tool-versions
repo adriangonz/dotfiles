@@ -1,4 +1,4 @@
-python 3.8.1
+python 3.7.6
 nodejs 13.5.0
 helm 3.0.2
 golang 1.13.5
