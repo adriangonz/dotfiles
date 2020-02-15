@@ -49,7 +49,7 @@
   "clock": {
     "format": "{:%d-%m-%Y | %H:%M}",
     "tooltip-format": "{:%d-%m-%Y | %H:%M}",
-    "format-alt": "{:%Y-%m-%d}"
+    "format-alt": "{:%d-%m-%Y}"
   },
   "backlight": {
     // "device": "acpi_video1",
