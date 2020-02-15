@@ -27,13 +27,26 @@ window#waybar {
 }
 
 #workspaces button.focused {
-  background-color: #88c0d0;
-  color: #2e3440;
+  color: #88c0d0;
   font-weight: bold;
 }
 
 #workspaces button.urgent {
-  background-color: #d08770;
+  color: #d08770;
+}
+
+#custom-arrow-workspaces {
+  color: #434c5e;
+}
+
+#custom-arrow-workspaces,
+#custom-arrow-rhs,
+#custom-arrow-stats,
+#custom-arrow-idle_inhibitor,
+#custom-arrow-clock,
+#custom-arrow-tray {
+  font-size: 25px;
+  background: transparent;
 }
 
 #mode {
@@ -41,28 +54,48 @@ window#waybar {
   border-bottom: 3px solid #eceff4;
 }
 
-#clock,
-#battery,
+#mode,
+#custom-media,
 #network,
 #pulseaudio,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor {
+#battery,
+#idle_inhibitor,
+#clock,
+#tray {
   padding: 0 15px;
   margin: 0;
   color: #eceff4;
   background-color: #434c5e;
 }
 
-#clock {
-  color: #2e3440;
-  background-color: #88c0d0;
-  font-weight: bold;
+#custom-arrow-rhs,
+#custom-arrow-stats,
+#custom-arrow-idle_inhibitor,
+#custom-arrow-clock,
+#custom-arrow-tray {
+  color: #4c566a;
+  background-color: #434c5e;
+}
+
+#custom-arrow-rhs {
+  color: #434c5e;
+  background: transparent;
+}
+
+#network.disconnected {
+  color: #b5616a;
+}
+
+#pulseaudio.muted {
+  color: #d08770;
+}
+
+#custom-arrow-stats {
+  color: #88c0d0;
 }
 
 #battery.charging {
-  color: #81a1c1;
+  color: #a3be8c;
 }
 
 @keyframes blink {
@@ -80,16 +113,40 @@ window#waybar {
   animation-direction: alternate;
 }
 
-label:focus {
+#custom-arrow-idle_inhibitor {
+  color: #2d3436;
+}
+
+#idle_inhibitor {
+  background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+  background-color: #ecf0f1;
+  color: #2d3436;
+}
+
+#custom-arrow-clock {
+  color: #88c0d0;
+  background: #2d3436;
+}
+
+#clock {
+  color: #2e3440;
+  background-color: #88c0d0;
+  font-weight: bold;
+}
+
+#custom-arrow-tray {
+  background: #88c0d0;
+}
+
+#tray {
   background-color: #4c566a;
 }
 
-#network.disconnected {
-  color: #b5616a;
-}
-
-#pulseaudio.muted {
-  color: #d08770;
+label:focus {
+  background-color: #4c566a;
 }
 
 #custom-media {
@@ -102,19 +159,6 @@ label:focus {
 
 #custom-media.custom-vlc {
   background-color: #ffa000;
-}
-
-#tray {
-  background-color: #4c566a;
-}
-
-#idle_inhibitor {
-  background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-  background-color: #ecf0f1;
-  color: #2d3436;
 }
 
 #mpd {
