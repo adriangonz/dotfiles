@@ -1,0 +1,29 @@
+/* https://cloudninja.pw/docs/wofi.html */
+window {
+  font-family: "Hack Nerd Font", "Font Awesome 5 Free";
+  border: 2px solid #a3be8c;
+  background-color: #2e3440;
+  font-size: 20px;
+}
+
+#input {
+  background-color: #a3be8c;
+  color: #2e3440;
+  border-radius: 0;
+  font-size: 25px;
+  padding: 10px 0;
+}
+
+#outer-box {
+  margin: 1px;
+}
+
+#entry {
+  padding: 10px 15px;
+  color: #64727d;
+}
+
+#entry:selected {
+  background-color: #434c5e;
+  color: #eceff4;
+}
