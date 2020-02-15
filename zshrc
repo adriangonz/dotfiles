@@ -36,6 +36,7 @@ export ASDF_DIR=/opt/asdf-vm
 antigen bundle asdf
 antigen bundle networkmanager
 antigen bundle bluetoothctl
+antigen bundle gcloud
 
 #
 #

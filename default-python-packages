@@ -3,3 +3,4 @@ virtualenv
 virtualenvwrapper
 notedown
 pynvim
+flake8
