@@ -14,7 +14,7 @@ window#waybar {
 }
 
 #workspaces button {
-  padding: 0 8px;
+  padding: 0px 15px;
   background-color: transparent;
   color: #eceff4;
   background-color: #434c5e;
@@ -27,7 +27,7 @@ window#waybar {
 }
 
 #workspaces button.focused {
-  background-color: #a3be8c;
+  background-color: #88c0d0;
   color: #2e3440;
   font-weight: bold;
 }
@@ -57,12 +57,12 @@ window#waybar {
 
 #clock {
   color: #2e3440;
-  background-color: #a3be8c;
+  background-color: #88c0d0;
   font-weight: bold;
 }
 
 #battery.charging {
-  color: #a3be8c;
+  color: #81a1c1;
 }
 
 @keyframes blink {
@@ -118,7 +118,7 @@ label:focus {
 }
 
 #mpd {
-  color: #a3be8c;
+  color: #81a1c1;
 }
 
 #mpd.disconnected {

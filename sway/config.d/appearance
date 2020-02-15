@@ -1,7 +1,7 @@
 # Appearance:
 #
 # Colors
-set $cl_high #a3be8c
+set $cl_high #88c0d0
 set $cl_indi #2e3440
 set $cl_back #64727d
 set $cl_fore #2e3440
