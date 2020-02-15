@@ -58,6 +58,7 @@ window#waybar {
 #custom-media,
 #network,
 #pulseaudio,
+#temperature,
 #battery,
 #idle_inhibitor,
 #clock,
@@ -92,6 +93,10 @@ window#waybar {
 
 #custom-arrow-stats {
   color: #88c0d0;
+}
+
+#temperature.critical {
+  color: #b5616a;
 }
 
 #battery.charging {
