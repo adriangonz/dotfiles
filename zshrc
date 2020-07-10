@@ -37,6 +37,8 @@ antigen bundle asdf
 antigen bundle networkmanager
 antigen bundle bluetoothctl
 antigen bundle gcloud
+antigen bundle istioctl
+# antigen bundle vi-mode
 
 #
 #
@@ -52,3 +54,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=$(asdf which python)
 source $(asdf where python)/bin/virtualenvwrapper.sh
 export PYTHONBREAKPOINT=ipdb.set_trace
+
+# Java config
+. ~/.asdf/plugins/java/set-java-home.zsh

@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 " Some base settings
 Plug 'tpope/vim-sensible'
 Plug 'myusuf3/numbers.vim'
+Plug 'romainl/vim-qf'
 
 " Quick switch between files (like cmd+P on Sublime)
 Plug 'junegunn/fzf'
@@ -39,7 +40,7 @@ Plug 'embear/vim-localvimrc'
 
 " Linters/etc
 Plug 'sbdchd/neoformat'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 
 " Handy tools for editing files
@@ -70,6 +71,7 @@ Plug 'szymonmaszke/vimpyter'
 " Plug 'artur-shaik/vim-javacomplete2'
 Plug 'neoclide/jsonc.vim'
 Plug 'towolf/vim-helm'
+Plug 'google/vim-jsonnet'
 
 " Autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -173,9 +175,6 @@ let g:xml_syntax_folding=1
 "" CtrlSF
 let g:ctrlsf_ackprog = 'rg'
 
-"" vim-go
-let g:go_metalinter_autosave = 1
-
 "" Airline settings
 let g:airline_theme = 'deus'
 let g:airline_powerline_fonts = 1
@@ -195,19 +194,19 @@ let g:promptline_preset = {
 let g:tmuxline_powerline_separators = 1
 
 "" ALE config
-let g:airline#extensions#ale#enabled = 1
-let g:ale_open_list = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {
-\   'html': [],
-\   'javascript': ['eslint'],
-\   'go': ['gofmt', 'golangci-lint'],
-\   'python': ['flake8'],
-\   'tex': ['proselint'],
-\   'pug': ['pug-lint'],
-\   'java': ['checkstyle']
-\}
-let g:ale_go_golangci_lint_package = 1
+" let g:airline#extensions#ale#enabled = 1
+" let g:ale_open_list = 1
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_linters = {
+" \   'html': [],
+" \   'javascript': ['eslint'],
+" \   'go': ['gofmt', 'golangci-lint'],
+" \   'python': ['flake8'],
+" \   'tex': ['proselint'],
+" \   'pug': ['pug-lint'],
+" \   'java': ['checkstyle']
+" \}
+" let g:ale_go_golangci_lint_package = 1
 
 "" Neoformat config
 augroup fmt
@@ -218,24 +217,32 @@ augroup END
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_jsonc = ['prettier']
 let g:neoformat_enabled_python = ['black']
+let g:neoformat_enabled_go = ['gofmt', 'goimports']
 let g:neoformat_java_google = {
             \ 'exe': 'google-java-format',
             \ 'args': ['-'],
             \ 'stdin': 1, 
             \ }
+let g:neoformat_jsonnet_jsonnetfmt = {
+            \ 'exe': 'jsonnetfmt',
+            \ 'args': ['-'],
+            \ 'stdin': 1, 
+            \ }
 
 let g:neoformat_enabled_java = ['google']
+let g:neoformat_enabled_jsonnet = ['jsonnetfmt']
 
-"" Autocompletion config
+" Autocompletion config (CoC)
 let g:SuperTabDefaultCompletionType = '<c-n>'
 set completeopt-=preview
-" Remap keys for gotos
+
+"" Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window
+"" Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -246,29 +253,17 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Remap for rename current word
+"" Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-" Using CocList
-" Show all diagnostics
-" nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
+"" Using CocList
+let g:coc_enable_locationlist=0
+
+""" Show all diagnostics
+""" Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
+""" Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-" nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-" nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-" nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-" nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-" nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 """ UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -280,6 +275,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 "" indentLine
 autocmd FileType markdown let g:indentLine_enabled=0
+autocmd FileType markdown set wrap
 autocmd FileType tex let g:indentLine_enabled=0
 
 "" fzf config
@@ -301,6 +297,11 @@ command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>),
 
 "" pandoc-preview.vim config
 let g:pandoc_preview_pdf_cmd = "zathura" 
+
+"" vim-qf
+let g:qf_mapping_ack_style = 1
+nmap <F5> <Plug>(qf_qf_toggle)
+nmap <F6> <Plug>(qf_loc_toggle)
 
 "" Shared clipboard
 set clipboard^=unnamed

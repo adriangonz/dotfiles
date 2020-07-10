@@ -5,18 +5,17 @@ output * bg ~/dotfiles/wallpapers/arch-nord.png fill
 #
 # List available outputs as `swaymsg -t get_outputs`
 #
-# Office
-# output eDP-1 pos 0 0 res 2560x1440 scale 1
-# output HDMI-A-2 pos 2560 0 res 2560x1440 scale 1
+# Office / Home
+output eDP-1 pos 0 0 res 2560x1440 scale 1
+output HDMI-A-2 pos 2560 0 res 2560x1440 scale 1
 # 
 # Office 2
-output HDMI-A-2 pos 0 0 res 1920x1080 scale 1
-output eDP-1 pos 0 1080 res 2560x1440 scale 1
+# output HDMI-A-2 pos 0 0 res 1920x1080 scale 1
+# output eDP-1 pos 0 1080 res 2560x1440 scale 1
 #
 # Home
 # output eDP-1 pos 0 0 res 2560x1440 scale 1
-# output HDMI-A-2 pos 2560 0 res 1920x1080 scale 1
-#
-# Home 2
+# output HDMI-A-2 pos 2560 0 res 2560x1440 scale 1
+# Home 
 # output HDMI-A-2 pos 0 0 res 1920x1080 scale 1
 # output eDP-1 pos 0 1080 res 2560x1440 scale 1

@@ -22,6 +22,7 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 
 # Screenshots (Mac-like shortcut)
 bindsym --release $alt+Shift+4 exec grim -g \"$(slurp)" - | wl-copy
+bindsym --release Print exec grim - | wl-copy
 
 # Backlights
 bindsym XF86MonBrightnessUp exec light -A 10
@@ -31,8 +32,10 @@ bindsym XF86MonBrightnessDown exec light -U 10
 bindsym XF86AudioMute exec pulsemixer --toggle-mute
 bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5
 bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5
-# TODO: How to get currently selected source?
-# bindsym XF86AudioMicMute
+
+bindsym $alt+Home exec playerctl previous
+bindsym $alt+End exec playerctl play-pause
+bindsym $alt+Insert exec playerctl next 
 
 # Lock screen
 bindsym $mod+Shift+Delete exec swaylock -f

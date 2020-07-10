@@ -4,3 +4,4 @@ virtualenvwrapper
 notedown
 pynvim
 flake8
+mypy

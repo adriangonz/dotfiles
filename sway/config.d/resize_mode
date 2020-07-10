@@ -15,4 +15,10 @@ mode "resize" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
+
+bindsym $alt+$left resize shrink width 10px
+bindsym $alt+$down resize grow height 10px
+bindsym $alt+$up resize shrink height 10px
+bindsym $alt+$right resize grow width 10px
+
 bindsym $mod+r mode "resize"
