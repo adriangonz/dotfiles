@@ -27,6 +27,8 @@ window:
     x: 2
     y: 2
 
+  decorations: None
+
 # Font configuration (changes require restart)
 #
 # Important font attributes like antialiasing, subpixel aa, and hinting can be
@@ -66,7 +68,7 @@ font:
     style: Italic
 
   # Point size of the font
-  size: 14.0
+  size: 10.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -137,7 +139,7 @@ colors:
 #
 # To completely disable the visual bell, set its duration to 0.
 #
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
 

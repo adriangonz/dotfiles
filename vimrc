@@ -46,6 +46,7 @@ Plug 'Yggdroot/indentLine'
 " Handy tools for editing files
 Plug 'andrewradev/sideways.vim'
 Plug 'dyng/ctrlsf.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -61,12 +62,13 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 
 " Languages
+let g:polyglot_disabled = ['latex']
 Plug 'sheerun/vim-polyglot'
 Plug 'amadeus/vim-mjml'
 Plug 'kchmck/vim-coffee-script'
 Plug 'lervag/vimtex'
 Plug 'djpohly/vim-gvpr'
-Plug 'szymonmaszke/vimpyter'
+" Plug 'szymonmaszke/vimpyter'
 " Plug 'plasticboy/vim-markdown'
 " Plug 'artur-shaik/vim-javacomplete2'
 Plug 'neoclide/jsonc.vim'
@@ -74,7 +76,8 @@ Plug 'towolf/vim-helm'
 Plug 'google/vim-jsonnet'
 
 " Autocompletion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
 Plug 'sirver/ultisnips'
 Plug 'ervandew/supertab'
 
@@ -146,7 +149,7 @@ set exrc
 
 "" LaTex and Markdown
 let g:vimtex_compiler_progname = 'nvr'
-let g:polyglot_disabled = ['latex']
+let g:tex_flavor = 'latex'
 let g:vimtex_fold_enabled = 1
 let g:vimtex_fold_types = {
   \ 'sections' : {
@@ -236,34 +239,57 @@ let g:neoformat_enabled_jsonnet = ['jsonnetfmt']
 let g:SuperTabDefaultCompletionType = '<c-n>'
 set completeopt-=preview
 
+lua << EOF
+local custom_lsp_attach = function(client)
+  -- See `:help nvim_buf_set_keymap()` for more information
+  vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true})
+  vim.api.nvim_buf_set_keymap(0, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true})
+  -- ... and other keymappings for LSP
+
+  -- Use LSP as the handler for omnifunc.
+  --    See `:help omnifunc` and `:help ins-completion` for more information.
+  vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- For plugins with an `on_attach` callback, call them here. For example:
+  -- require('completion').on_attach()
+end
+
+require'lspconfig'.pyright.setup({
+  on_attach = custom_lsp_attach
+})
+EOF
+
 "" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
 
 "" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+" function! s:show_documentation()
+  " if (index(['vim','help'], &filetype) >= 0)
+    " execute 'h '.expand('<cword>')
+  " else
+    " call CocAction('doHover')
+  " endif
+" endfunction
 
 "" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+" nmap <leader>rn <Plug>(coc-rename)
+
+" Add `:OR` command for organize imports of the current buffer.
+" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 "" Using CocList
-let g:coc_enable_locationlist=0
+" let g:coc_enable_locationlist=1
 
 """ Show all diagnostics
 """ Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 """ Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 
 """ UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -275,7 +301,6 @@ let g:UltiSnipsEditSplit="vertical"
 
 "" indentLine
 autocmd FileType markdown let g:indentLine_enabled=0
-autocmd FileType markdown set wrap
 autocmd FileType tex let g:indentLine_enabled=0
 
 "" fzf config
@@ -304,9 +329,9 @@ nmap <F5> <Plug>(qf_qf_toggle)
 nmap <F6> <Plug>(qf_loc_toggle)
 
 "" Shared clipboard
-set clipboard^=unnamed
-set clipboard+=unnamedplus
-set nowrap
+" set clipboard^=unnamed
+" set clipboard+=unnamedplus
+set clipboard=unnamedplus
 set foldmethod=syntax
 " set spell
 

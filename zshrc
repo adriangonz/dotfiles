@@ -57,3 +57,6 @@ export PYTHONBREAKPOINT=ipdb.set_trace
 
 # Java config
 . ~/.asdf/plugins/java/set-java-home.zsh
+
+# Go / K8s config
+export KO_DOCKER_REPO=kind.local

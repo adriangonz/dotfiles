@@ -13,5 +13,12 @@
     "initializationOptions": {
       "usePlaceholders": true
     }
+  },
+  "java": {
+    "import": {
+      "gradle": {
+        "enabled": true
+      }
+    }
   }
 }
