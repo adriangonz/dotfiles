@@ -265,31 +265,8 @@ EOF
 " nmap <silent> gi <Plug>(coc-implementation)
 " nmap <silent> gr <Plug>(coc-references)
 
-"" Use K to show documentation in preview window
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" function! s:show_documentation()
-  " if (index(['vim','help'], &filetype) >= 0)
-    " execute 'h '.expand('<cword>')
-  " else
-    " call CocAction('doHover')
-  " endif
-" endfunction
-
 "" Remap for rename current word
 " nmap <leader>rn <Plug>(coc-rename)
-
-" Add `:OR` command for organize imports of the current buffer.
-" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-"" Using CocList
-" let g:coc_enable_locationlist=1
-
-""" Show all diagnostics
-""" Manage extensions
-" nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-""" Show commands
-" nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 
 """ UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
