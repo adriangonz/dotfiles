@@ -42,6 +42,7 @@ Plug 'embear/vim-localvimrc'
 Plug 'sbdchd/neoformat'
 " Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Handy tools for editing files
 Plug 'andrewradev/sideways.vim'
@@ -76,7 +77,6 @@ Plug 'towolf/vim-helm'
 Plug 'google/vim-jsonnet'
 
 " Autocompletion
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'sirver/ultisnips'
 Plug 'ervandew/supertab'
@@ -255,6 +255,16 @@ local custom_lsp_attach = function(client)
 end
 
 require'lspconfig'.pyright.setup({
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "workspace",
+        useLibraryCodeForTypes = true,
+        typeCheckingMode = "strict"
+      }
+    }
+  },
   on_attach = custom_lsp_attach
 })
 EOF
