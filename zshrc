@@ -20,8 +20,14 @@ alias tb='taskbook'
 alias k='kubectl'
 
 # Antigen config
-## TODO: Make it cross-platform
-source /usr/share/zsh/share/antigen.zsh
+if [ "$(uname)" = "Darwin" ]; then
+  unset ASDF_DIR
+  source /usr/local/share/antigen/antigen.zsh
+elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+  export ASDF_DIR=/opt/asdf-vm 
+  source /usr/share/zsh/share/antigen.zsh
+fi
+
 #
 ## Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -32,11 +38,10 @@ antigen bundle pip
 antigen bundle command-not-found
 antigen bundle gcloud
 antigen bundle zsh
-export ASDF_DIR=/opt/asdf-vm 
 antigen bundle asdf
 antigen bundle networkmanager
 antigen bundle bluetoothctl
-antigen bundle gcloud
+antigen bundle gcloud=$(brew --prefix asdf)
 antigen bundle istioctl
 # antigen bundle vi-mode
 
