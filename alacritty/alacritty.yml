@@ -14,6 +14,9 @@ env:
   TERM: xterm-256color
 
 window:
+  # Background opacity
+  opacity: 1.0
+
   # Window dimensions in character columns and lines
   # (changes require restart)
   dimensions:
@@ -68,7 +71,7 @@ font:
     style: Italic
 
   # Point size of the font
-  size: 10.0
+  size: 9.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -82,11 +85,6 @@ font:
   glyph_offset:
     x: 0
     y: 0
-
-  # OS X only: use thin stroke font rendering. Thin strokes are suitable
-  # for retina displays, but for non-retina you probably want this set to
-  # false.
-  use_thin_strokes: true
 
 # Colors (Nord)
 colors:
@@ -142,9 +140,6 @@ colors:
 bell:
   animation: EaseOutExpo
   duration: 0
-
-# Background opacity
-background_opacity: 1.0
 
 # Mouse bindings
 #

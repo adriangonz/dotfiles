@@ -39,8 +39,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'embear/vim-localvimrc'
 
 " Linters/etc
-Plug 'sbdchd/neoformat'
-" Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -61,6 +59,7 @@ Plug 'godlygeek/tabular'
 Plug 'lingnand/pandoc-preview.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'lukas-reineke/lsp-format.nvim'
 
 " Languages
 let g:polyglot_disabled = ['latex']
@@ -80,6 +79,8 @@ Plug 'google/vim-jsonnet'
 Plug 'neovim/nvim-lspconfig'
 Plug 'sirver/ultisnips'
 Plug 'ervandew/supertab'
+Plug 'folke/trouble.nvim'
+Plug 'creativenull/efmls-configs-nvim'
 
 " Initialize plugin system
 call plug#end()
@@ -187,85 +188,113 @@ let g:airline#extensions#tmuxline#enabled = 0
 """ (that way we are consistent in terms of themes/etc)
 """ This sets the config for each one
 let g:promptline_preset = {
-        \'a' : [ promptline#slices#python_virtualenv() ],
         \'b' : [ promptline#slices#kubernetes() ],
         \'c' : [ promptline#slices#cwd({ 'dir_limit': 2 }) ],
-        \'x' : [ promptline#slices#vcs_branch() ],
-        \'y' : [ promptline#slices#git_status() ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
 
 let g:tmuxline_powerline_separators = 1
-
-"" ALE config
-" let g:airline#extensions#ale#enabled = 1
-" let g:ale_open_list = 1
-" let g:ale_lint_on_text_changed = 'never'
-" let g:ale_linters = {
-" \   'html': [],
-" \   'javascript': ['eslint'],
-" \   'go': ['gofmt', 'golangci-lint'],
-" \   'python': ['flake8'],
-" \   'tex': ['proselint'],
-" \   'pug': ['pug-lint'],
-" \   'java': ['checkstyle']
-" \}
-" let g:ale_go_golangci_lint_package = 1
-
-"" Neoformat config
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
-
-let g:neoformat_enabled_javascript = ['prettier']
-let g:neoformat_enabled_jsonc = ['prettier']
-let g:neoformat_enabled_python = ['black']
-let g:neoformat_enabled_go = ['gofmt', 'goimports']
-let g:neoformat_java_google = {
-            \ 'exe': 'google-java-format',
-            \ 'args': ['-'],
-            \ 'stdin': 1, 
-            \ }
-let g:neoformat_jsonnet_jsonnetfmt = {
-            \ 'exe': 'jsonnetfmt',
-            \ 'args': ['-'],
-            \ 'stdin': 1, 
-            \ }
-
-let g:neoformat_enabled_java = ['google']
-let g:neoformat_enabled_jsonnet = ['jsonnetfmt']
 
 " Autocompletion config (CoC)
 let g:SuperTabDefaultCompletionType = '<c-n>'
 set completeopt-=preview
 
+" Autoformat on save
+autocmd BufWritePre * lua vim.lsp.buf.format()
+
 lua << EOF
-local custom_lsp_attach = function(client)
-  -- See `:help nvim_buf_set_keymap()` for more information
-  vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true})
-  vim.api.nvim_buf_set_keymap(0, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true})
-  -- ... and other keymappings for LSP
+-- Setup language servers.
+local lspconfig = require('lspconfig')
+local util = require('lspconfig/util')
+local black = require('efmls-configs.formatters.black')
+local prettier = require('efmls-configs.formatters.prettier')
+local gofmt = require('efmls-configs.formatters.gofmt')
+local goimports = require('efmls-configs.formatters.goimports')
 
-  -- Use LSP as the handler for omnifunc.
-  --    See `:help omnifunc` and `:help ins-completion` for more information.
-  vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+local languages = {
+  python = { black },
+  javascript = { prettier },
+  jsonc = { prettier },
+  go = { gofmt, goimports }
+}
 
-  -- For plugins with an `on_attach` callback, call them here. For example:
-  -- require('completion').on_attach()
+
+-- Helper method to find Python path
+local path = util.path
+local function get_python_path(workspace)
+  -- Use activated virtualenv.
+  if vim.env.VIRTUAL_ENV then
+    return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
+  end
+
+  -- Find and use virtualenv with project's name.
+  local workspace_name = workspace:match("^.+/(.+)$")
+  local home = vim.fn.expand("~")
+  local virtualenv_path = path.join(home, ".virtualenvs", workspace_name)
+  local is_dir = path.is_dir(virtualenv_path)
+  if path.is_dir(virtualenv_path) then
+     local venv_python = path.join(virtualenv_path, "bin", "python")
+     return venv_python
+  end
+
+  -- Fallback to system Python.
+  return exepath('python3') or exepath('python') or 'python'
 end
 
-require'lspconfig'.pyright.setup({
+vim.lsp.set_log_level("debug")
+lspconfig.gopls.setup{}
+lspconfig.pyright.setup {
+  before_init = function(_, config)
+    config.settings.python.pythonPath = get_python_path(config.root_dir)
+  end
+}
+lspconfig.esbonio.setup {}
+lspconfig.efm.setup {
+  filetypes = vim.tbl_keys(languages),
   settings = {
-    python = {
-      analysis = {
-        autoSearchPaths = true,
-        diagnosticMode = "workspace",
-        useLibraryCodeForTypes = true,
-        typeCheckingMode = "strict"
-      }
-    }
+    languages = languages
   },
-  on_attach = custom_lsp_attach
+  init_options = {
+    documentFormatting = true,
+    documentRangeFormatting = true,
+  },
+}
+
+-- Global mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<space>f', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+  end,
 })
 EOF
 

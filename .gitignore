@@ -4,4 +4,6 @@
 # vim 
 vim/plugged
 vim/sessions
+vim/spell
+vim/autoload/plug.vim.old
 

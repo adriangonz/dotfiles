@@ -15,7 +15,7 @@ alias ls="ls -G"
 # Ruby config
 export PATH="~/.gem/ruby/2.0.0/bin:$PATH"
 
-# Python config 
+# Python config
 ## pyenv config
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -37,7 +37,7 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 # NVM config
 export NVM_DIR="$HOME/.nvm"
 . "/$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # Rust config
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -59,12 +59,13 @@ export CLOUDSDK_PYTHON=python
 
 # Update PATH for the Google Cloud SDK
 if [ -f ~/google-cloud-sdk/path.bash.inc ]; then
-  . ~/google-cloud-sdk/path.bash.inc;
+  . ~/google-cloud-sdk/path.bash.inc
 fi
 
 # Enable shell command completion for gcloud
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 if [ -f ~/google-cloud-sdk/completion.bash.inc ]; then
-  . ~/google-cloud-sdk/completion.bash.inc;
+  . ~/google-cloud-sdk/completion.bash.inc
 fi
 
 # KIND config
@@ -74,3 +75,8 @@ export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
 export SDKMAN_DIR="/Users/kaseyo/.sdkman"
 [[ -s "/Users/kaseyo/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/kaseyo/.sdkman/bin/sdkman-init.sh"
 
+# Export GPG Key
+export GPG_TTY=\$(tty)
+
+# Set up prompt
+eval "$(starship init bash)"

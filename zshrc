@@ -10,7 +10,7 @@ bindkey -v
 
 zstyle :compinstall filename '/home/agm/.zshrc'
 
-# Completions 
+# Completions
 autoload -Uz compinit
 compinit
 
@@ -54,7 +54,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 ## Apply
 antigen apply
 
-# Python config 
+# Python config
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=$(asdf which python)
 source $(asdf where python)/bin/virtualenvwrapper.sh
@@ -65,3 +65,6 @@ export PYTHONBREAKPOINT=ipdb.set_trace
 
 # Go / K8s config
 export KO_DOCKER_REPO=kind.local
+
+# Set up prompt
+eval "$(starship init zsh)"

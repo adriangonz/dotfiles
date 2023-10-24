@@ -1,0 +1,14 @@
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[package]
+disabled = true
+
+[kubernetes]
+disabled = false
+
+[status]
+disabled = false
