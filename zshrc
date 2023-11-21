@@ -36,14 +36,17 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle pip
 antigen bundle command-not-found
-antigen bundle gcloud
 antigen bundle zsh
 antigen bundle asdf
 antigen bundle networkmanager
 antigen bundle bluetoothctl
-antigen bundle gcloud=$(brew --prefix asdf)
 antigen bundle istioctl
-# antigen bundle vi-mode
+
+if [ "$(uname)" = "Darwin" ]; then
+  antigen bundle gcloud=$(brew --prefix asdf)
+elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
+  antigen bundle gcloud
+fi
 
 #
 #
